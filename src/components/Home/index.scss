@@ -1,0 +1,81 @@
+.home-page {
+  .text-zone {
+    position: absolute;
+    left: 10%; // ===== responsive ===== 如果页面很窄，必然会与左边的sidebar重合，因为sidebar定的是60px固定值
+    top: 50%; // box模型的上顶线与页面正中线重合
+    transform: translateY(
+      -50%
+    ); // 在上面的top里定义50%之后，这里似乎会将box模型的正中线重合到页面正中线位置，即dead center正正中心
+    width: 40%; // 指的是页面整体里，这个text-zone只占40%，剩下60%会是右边那个很大的S
+    max-height: 90%; // 最多占页面的90%？还是占container的90%？似乎是container的90%
+  }
+
+  h1 {
+    color: #feede3;
+    font-size: 53px;
+    margin: 0; // 和下面的h2之间不再有margin
+    font-family: 'Coolvetica';
+    font-weight: 400; // 控制粗体粗的程度，这里减少了粗
+
+    &::before {
+      content: '<h1>';
+      font-family: 'La Belle Aurore';
+      color: #ff5100;
+      font-size: 18px;
+      position: absolute;
+      margin-top: -40px; // 加一个负数可以往上挪
+      left: 15px;
+      //opacity: 0.6;
+    }
+
+    &::after {
+      content: '</h1>';
+      font-family: 'La Belle Aurore';
+      color: #ff5100;
+      font-size: 18px;
+      position: absolute;
+      margin-top: 18px; // 加一个负数可以往上挪
+      margin-left: 20px;
+      animation: fadeIn 1s 1.7s backwards; // delay 1.7秒
+      //opacity: 0.6; // 导致了渐进后的一个闪烁
+    }
+    img {
+      width: 50px;
+      margin-left: 20px; // 充当图片左侧空格
+      opacity: 0;
+      height: auto;
+      animation: fadeIn 1.25s forwards;
+      animation-delay: 1.4s;
+    }
+  }
+
+  h2 {
+    color: #edcbb8;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 11px;
+    font-family: sans-serif;
+    letter-spacing: 3px; // 字母间距
+    animation: fadeIn 1s 1.8s backwards;
+  }
+
+  .flat-button {
+    color: #ff5100;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    text-decoration: none; // 取消默认的deco，即下划线蓝色字体
+    padding: 10px 18px;
+    border: 1px solid #ff5100;
+    margin-top: 25px;
+    float: left; // 类似position，加了才渲染这个flat-button
+    animation: fadeIn 1s 2.2s backwards;
+    white-space: nowrap; // 处理留白
+
+    &:hover {
+      background: #ff5100;
+      color: #feede3;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+.page {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.top-tags {
+  bottom: auto;
+  top: 35px;
+}
+
+.tags {
+  color: #ff5100;
+  //opacity: 0.6;
+  position: absolute;
+  bottom: 0;
+  left: 120px;
+  font-size: 30px;
+  font-family: 'La Belle Aurore';
+}
+
+//.top-tags-alt {
+//  bottom: auto;
+//  top: 35px;
+//  color: #c800ff;
+//  left: 121.5px;
+//  //opacity: 1;
+//}
+
+//.bottom-tags-alt {
+//  color: #c800ff;
+//  left: 121.5px;
+//  //opacity: 1;
+//}
+
+.bottom-tag-html {
+  margin-left: -25px;
+}
+
+//.bottom-tag-html-alt {
+//  margin-left: -25px;
+//}
+
+// Layout下nest的子路由一般都会有container这个className，所以这里先统一处理
+.container {
+  width: 100%;
+  height: 90%; // 因为上下有花体代码tag，所以真正内容只有90%
+  will-change: contents; // 这是啥？见笔记，告知浏览器该元素会有哪些变化，浏览器可以在元素属性真正发生变化之前提前做好对应的优化准备工作
+  min-height: 566px; // ====== 不知道为什么定这个数字？？视频里没解释 ======
+  position: absolute;
+  opacity: 0; // 视频理解说之后会有container会有fade in动画，所以刚加载页面的时候看不见
+  top: 5%; // 是不是高度剩下来的10%对半开
+  margin: 0 auto; // 见笔记，这里是上下为0，不留空间，左右为auto，自动适应
+  z-index: 1;
+  transform-style: preserve-3d; // 又是一个新的属性。见笔记，在parent元素里写这个属性，应用于子元素
+  animation: fadeIn 1s forwards; // 视频里解释是animation.css里的属性
+  animation-delay: 1s; // 晚一点再开始计算动画
+}

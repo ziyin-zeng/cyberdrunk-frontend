@@ -1,0 +1,33 @@
+.text-animate {
+  display: inline-block; // 见笔记，和inline还有block的区别很明显
+  opacity: 0;
+  animation: bounceIn 1s 1s;
+  animation-fill-mode: forwards; // 如果没有这个forward的fill mode，只有上面单独一个动画的话，虽然显示会有动画，但最后会消失，因为opacity为0
+  min-width: 10px;
+
+  &._22, &._23, &._24{
+    color: #ff995e;
+  }
+}
+
+.text-animate-hover {
+  min-width: 10px;
+  display: inline-block;
+  animation-fill-mode: both;
+
+  &._22, &._23, &._24 {
+    color: #ff995e;
+  }
+
+  &:hover {
+    animation: rubberBand 1s;
+    color: #ff5100;
+  }
+}
+
+// 不太一样的部分，在css里写循环
+@for $i from 1 through 38 {
+  .text-animate._#{$i} {
+    animation-delay: #{$i / 10}s;
+  }
+}

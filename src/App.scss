@@ -1,0 +1,25 @@
+// 视频里说#ffd700这个颜色是 animate.css 里面的？还是意思是这个颜色要用在 animate.css 里？
+$primary-color: #ff5100;
+
+@import "animate.css";
+
+// 从assets里导入3种字体，用于不同位置
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: url('./assets/fonts/helvetica-neu.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'La Belle Aurore';
+  src: url('./assets/fonts/LaBelleAurore.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Coolvetica';
+  src: url('./assets/fonts/CoolveticaRg-Regular.woff2') format('woff2');
+}
+
+input,
+textarea {
+  font-family: "Helvetica Neue";
+}
