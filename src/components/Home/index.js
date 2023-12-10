@@ -8,7 +8,6 @@ import {getAlcoholByCat} from '../../api/Alcohol'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
-  const [alcohol, setAlcohol] = useState("1")
   // const nameArray = ['k', 'u', 'n', 'k', 'h', 'u', 'n', 't', '4', '2']
   const nameArray = [' ', 'Z', 'i', 'y', 'i', 'n', ' ', 'Z', 'E', 'N', 'G']
   const jobArray = [
@@ -26,17 +25,6 @@ const Home = () => {
     'e',
     'r',
   ]
-
-  useEffect(()=>{
-    getAlcoholByCat(1)
-    .then((response) => {
-      const alcoholName = response.data;
-      console.log(alcoholName)
-      setAlcohol(alcoholName)
-      console.log("this is al in then ",alcohol)
-    });
-    console.log("this is al ",alcohol)
-  },[])
 
   // 将之前的text-animate类名转换为-hover，这样才能应用scss里的动画
   // 4000这个时间不能设置的太短，否则会在第一个弹跳入场动画加载完成之前就把类名换掉了，导致没有入场动画
@@ -70,7 +58,7 @@ const Home = () => {
             idx={26}
           />
         </h1>
-        <h2>Frontend Developer/ Destruction warlock / {alcohol} Lover</h2>
+        <h2>Frontend Developer/ Destruction warlock</h2>
         <Link to="/contact" className={'flat-button'}>
           Contact me
         </Link>
