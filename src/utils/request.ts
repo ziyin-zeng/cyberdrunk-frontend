@@ -24,9 +24,10 @@ const request = (_url: string, options: any) => {
     return new Promise((resolve, reject) => {
         Axios(config)
             .then((response) => {
-                const { code, msg, data } = response.data;
+                const { code, data, warning } = response.data;
                 console.log(response)
-                if (response.status === 200) {
+                if (code === 200) {
+                    console.log('inside 200')
                     resolve(response);
                 }
                 //  else {
