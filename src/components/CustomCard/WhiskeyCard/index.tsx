@@ -12,6 +12,7 @@ import FavoriteBorderRounded from '@material-ui/icons/FavoriteBorderRounded';
 import JD from '../../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg';
 import JDLogo from '../../../assets/images/whiskey/logo/johnnie-walker-brand.avif';
 import LK from '../../../assets/images/whiskey/cody-chan-hLgKiFcVuDY-unsplash.jpg'
+import CVS from '../../../assets/images/whiskey/kartikeya-srivastava-Wn07Sg4O2LY-unsplash.jpg'
 import { LEFT_EDGE_SIDEBAR_ID } from "@mui-treasury/layout/utils/constant";
 import { Flex } from "antd";
 // import {rotateLeft} from "react-magic";
@@ -54,6 +55,13 @@ const StyledRoot = styled("div")<{ color?: string }>(
         width: "60%",
         bottom: -6,
       },
+      "& .StyledH2": {
+        display: "block"
+      },
+      "& .ImgSource": {
+        display: "block !important", // 这里important是因为下面的display none直接是内联样式，hover定义的覆盖不了，故提高优先级
+        animation: "fadeIn 1s 0.5s backwards",
+      }
     },
   })
 );
@@ -62,7 +70,7 @@ const CardMediaCover = styled(CardMedia)(() => ({
   borderRadius: "1rem",
   position: "absolute",
   transition: "0.5s",
-  width: "70%",
+  width: "85%",
   height: "100%",
   minHeight: 300,
   top: 0,
@@ -76,7 +84,8 @@ const StyledH2 = styled("h2")(() => ({
   fontFamily: "Fjalla One",
   fontSize: "1.25rem",
   color: "#fff",
-  margin: 0
+  margin: 0,
+  display: "none"
 }));
 
 const StyledContent = styled("div")<{ color?: string }>(
@@ -86,7 +95,7 @@ const StyledContent = styled("div")<{ color?: string }>(
     zIndex: 1,
     padding: "1rem",
     borderRadius: "1rem",
-    width: "50%",
+    width: "30%",
     height: "100%",
     minHeight: 400, 
     // boxShadow: `0 6px 16px 0 ${Color(color).fade(0.5)}`,
@@ -106,7 +115,7 @@ const StyledContent = styled("div")<{ color?: string }>(
       borderRadius: "1rem",
       background: `linear-gradient(to right, ${color}, ${Color(color)
         .rotate(24)
-        .lighten(0.05)})`,
+        .lighten(0.1)})`,
     },
   })
 );
@@ -135,6 +144,10 @@ const StyledDivDate = styled("div")(({ theme }) => ({
   borderRadius: 12,
 }));
 
+const MuiItemStyle:React.CSSProperties = {
+  display: "none",
+}
+
 const CustomCard = ({
   color,
   cover,
@@ -154,7 +167,9 @@ const CustomCard = ({
 }) => {
   return (
     <StyledRoot color={color}>
-      <Item cssPosition={"absolute"} zIndex={1} left={5} bottom={5}>
+      {/* 定 className 是为了在上面 hover 的时候可以被类选择器选到 */}
+      {/* 定 style 是为了直接应用 display none */}
+      <Item cssPosition={"absolute"} zIndex={1} left={0} bottom={5} style={MuiItemStyle} className={"ImgSource"}>
         <StyledDivTeam>From {imgSource}</StyledDivTeam>
         <StyledDivTeam>By {imgAuthor}</StyledDivTeam>
       </Item>
@@ -162,16 +177,13 @@ const CustomCard = ({
       <CardMediaCover image={cover}/>
       <StyledContent color={color} className={"StyledContent"}>
         <Box position={"relative"} zIndex={1}>
-          <Row p={0} gap={2}>
-            <Item>
+          <Row p={0} gap={1}>
+            <Item className="logo" ml="72px">
               <AvatarLogo src={logo} />
             </Item>
             <Item alignSelf="flex-end">
-              <StyledH2>{title}</StyledH2>
+              <StyledH2 className="StyledH2">{title}</StyledH2>
             </Item>
-            <IconButton>
-        <FavoriteBorderRounded />
-      </IconButton>
           </Row>
           <Row mt={4} alignItems={"center"}>
             <Item ml="auto">
@@ -184,9 +196,21 @@ const CustomCard = ({
   );
 };
 
+// 这里的断言很重要，没有的话是通不过的
+const GridStyle:React.CSSProperties = {
+  overflowX: "scroll",
+  whiteSpace: "nowrap",
+  minWidth: "1300px",
+  height: "100%"
+};
+
+const GridItemStyle:React.CSSProperties = {
+  paddingRight: "32px",
+};
+
 export default function CardHighlight() {
   return (
-    <Grid wrap={"nowrap"} container spacing={4}>
+    <Grid wrap={"nowrap"} container spacing={4} style={GridStyle}>
       <Grid item>
         <CustomCard
           color="#fc7944"
@@ -205,12 +229,28 @@ export default function CardHighlight() {
       </Grid>
       <Grid item>
         <CustomCard
-          color="#bdb76b"
+          color="#009077"
           imgSource={"Unsplash"}
           imgAuthor={"Cody Chan"}
           date={"02.04.2020"}
           cover={LK}
           logo={LK}
+          title={
+            <>
+              Astronomy Binoculars
+              <br />A Great Alternative
+            </>
+          }
+        />
+      </Grid>
+      <Grid item style={GridItemStyle}>
+        <CustomCard
+          color="#FC8A44"
+          imgSource={"Unsplash"}
+          imgAuthor={"Kartikeya Srivastava"}
+          date={"02.04.2020"}
+          cover={CVS}
+          logo={CVS}
           title={
             <>
               Astronomy Binoculars

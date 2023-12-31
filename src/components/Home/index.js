@@ -58,7 +58,8 @@ const Home = () => {
             idx={26}
           />
         </h1>
-        <h2>Frontend Developer/ A girl that i like once told me: you are not my type, i could say the same thing to all the red wine in this world</h2>
+        <h2>Frontend Developer</h2>
+        {/* A girl that i like once told me: you are not my type, i could say the same thing to all the red wine in this world */}
         <Link to="/contact" className={'flat-button'}>
           Contact me
         </Link>

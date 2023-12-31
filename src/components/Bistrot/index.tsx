@@ -18,9 +18,9 @@ const Bistrot = () => {
   },[])
 
   return (
-    <div className={'container home-page'}>
+    <div className={'container bistrot-page'}>
       <div className={'text-zone'}>
-        <h2>The sorted tableau is {tableau}</h2>
+        <h2>{tableau}</h2>
         <CardHighlight/>
       </div>
     </div>
