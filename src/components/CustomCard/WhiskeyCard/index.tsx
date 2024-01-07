@@ -13,8 +13,6 @@ import JD from '../../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg
 import JDLogo from '../../../assets/images/whiskey/logo/johnnie-walker-brand.avif';
 import LK from '../../../assets/images/whiskey/cody-chan-hLgKiFcVuDY-unsplash.jpg'
 import CVS from '../../../assets/images/whiskey/kartikeya-srivastava-Wn07Sg4O2LY-unsplash.jpg'
-import { LEFT_EDGE_SIDEBAR_ID } from "@mui-treasury/layout/utils/constant";
-import { Flex } from "antd";
 // import {rotateLeft} from "react-magic";
 // import animated from 'animate.css'
 
@@ -25,7 +23,10 @@ const StyledRoot = styled("div")<{ color?: string }>(
     position: "relative",
     borderRadius: "1rem",
     minWidth: 600,
-    minHeight: 400,
+    // maxWidth: 1200,
+    width: "95%",
+    minHeight: 600,
+    padding: '0 24px 0 0',
     display: "flex",
     justifyContent: "flex-end",
     "&:before": {
@@ -93,11 +94,11 @@ const StyledContent = styled("div")<{ color?: string }>(
     position: "relative",
     transition: "1s",
     zIndex: 1,
-    padding: "1rem",
+    // padding: "1rem",
     borderRadius: "1rem",
     width: "30%",
     height: "100%",
-    minHeight: 400, 
+    minHeight: 600, 
     // boxShadow: `0 6px 16px 0 ${Color(color).fade(0.5)}`,
     "&:before": {
       content: '""',
@@ -195,12 +196,12 @@ const CustomCard = ({
     </StyledRoot>
   );
 };
+export default CustomCard
 
 // 这里的断言很重要，没有的话是通不过的
 const GridStyle:React.CSSProperties = {
   overflowX: "scroll",
   whiteSpace: "nowrap",
-  minWidth: "1300px",
   height: "100%"
 };
 
@@ -208,7 +209,7 @@ const GridItemStyle:React.CSSProperties = {
   paddingRight: "32px",
 };
 
-export default function CardHighlight() {
+export function CardHighlight() {
   return (
     <Grid wrap={"nowrap"} container spacing={4} style={GridStyle}>
       <Grid item>

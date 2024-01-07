@@ -5,6 +5,7 @@
   height: 100%;
   position: absolute;
   top: 0;
+  left: 0;
   z-index: 3; // 似乎是层级关系，即顶层底层中间层，大数在上层
   min-height: 500px; // 没啥区别，以为会因为页面过小，切换手机端显示，但好像只是限制了navbar里几个元素高度总和
 
@@ -73,7 +74,7 @@
 
       &:first-child {
         &:after {
-          content: 'HOME';
+          content: 'CHEZENG';
         }
       }
     }

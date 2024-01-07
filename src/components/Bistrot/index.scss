@@ -8,7 +8,6 @@
       ); // 在上面的top里定义50%之后，这里似乎会将box模型的正中线重合到页面正中线位置，即dead center正正中心
       width: 95%;
       left: 5%;
-      max-height: 520px; // 最多占页面的90%？还是占container的90%？似乎是container的90%
       height: 90%
     }
     h2 {

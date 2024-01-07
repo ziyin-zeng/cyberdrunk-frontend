@@ -34,6 +34,7 @@
     "react-magic": "^0.2.4",
     "react-router-dom": "^6.20.1",
     "react-scripts": "5.0.1",
+    "react-swipeable-views": "^0.14.0",
     "sass": "^1.53.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
@@ -63,6 +64,8 @@
     ]
   },
   "devDependencies": {
+    "@types/react-swipeable-views": "^0.13.5",
+    "@types/react-swipeable-views-utils": "^0.13.7",
     "prettier": "^2.7.1"
   }
 }

@@ -2,7 +2,9 @@ import './index.scss'
 import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import {doAlgoTriInsertion} from '../../api/Tri'
-import CardHighlight from '../CustomCard/WhiskeyCard'
+import CardStepper from '../CustomCard/CardStepper'
+import { CardHighlight } from '../CustomCard/WhiskeyCard'
+
 
 const Bistrot = () => {
   const [tableau, setTableau] = useState([5,4,3,2,1,0])
@@ -21,7 +23,8 @@ const Bistrot = () => {
     <div className={'container bistrot-page'}>
       <div className={'text-zone'}>
         <h2>{tableau}</h2>
-        <CardHighlight/>
+        <CardStepper/>
+        {/* <CardHighlight/> */}
       </div>
     </div>
   )

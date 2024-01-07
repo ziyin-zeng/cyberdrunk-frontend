@@ -3,7 +3,6 @@ html {
 }
 
 body {
-  margin: 0;
   font: 300 11px/1.4 'Helvetica Neue', sans-serif;
   color: #444;
   background: #ac6d46;
@@ -11,4 +10,9 @@ body {
   display: block;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body * {
+  margin: 0;
+  padding: 0;
 }
