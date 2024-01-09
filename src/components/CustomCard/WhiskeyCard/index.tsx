@@ -20,11 +20,12 @@ const defaultColor = "#747f84";
 
 const StyledRoot = styled("div")<{ color?: string }>(
   ({ color = defaultColor }) => ({
+    boxSizing: "border-box",
     position: "relative",
     borderRadius: "1rem",
     minWidth: 600,
     // maxWidth: 1200,
-    width: "95%",
+    width: "100%",
     minHeight: 600,
     padding: '0 24px 0 0',
     display: "flex",

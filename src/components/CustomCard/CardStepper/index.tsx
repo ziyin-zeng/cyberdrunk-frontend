@@ -6,8 +6,7 @@ import MobileStepper from '@mui/material/MobileStepper';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-// import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-// import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import DoubleArrowSharpIcon from '@mui/icons-material/DoubleArrowSharp';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import CustomCard from '../WhiskeyCard';
@@ -15,6 +14,7 @@ import JD from '../../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg
 import JDLogo from '../../../assets/images/whiskey/logo/johnnie-walker-brand.avif';
 import LK from '../../../assets/images/whiskey/cody-chan-hLgKiFcVuDY-unsplash.jpg'
 import CVS from '../../../assets/images/whiskey/kartikeya-srivastava-Wn07Sg4O2LY-unsplash.jpg'
+import LogoZ from '../../../assets/images/logo-z.svg'
 
 const AutoPlaySwipeableViews = SwipeableViews;
 
@@ -83,7 +83,7 @@ const StyledButton = styled(Button)(() => ({
     position: "absolute",
     height: "100%",
     width: "5%",
-    minWidth: "100px",
+    minWidth: "90px",
     transition: "background-color 1s",
 
     // 按钮悬浮border动画 - 开始
@@ -93,7 +93,7 @@ const StyledButton = styled(Button)(() => ({
         height: "2px",
         position: "absolute",
         transition: "all .2s linear",
-        background: "red"
+        background: "rgba(255,255,255,0.3)"
     },
 
     "span::before, span::after": {
@@ -102,7 +102,7 @@ const StyledButton = styled(Button)(() => ({
         height: "0",
         position: "absolute",
         transition: "all .2s linear",
-        background: "red"
+        background: "rgba(255,255,255,0.3)"
     },
 
     "&:before, &:after": {
@@ -135,10 +135,10 @@ const StyledButton = styled(Button)(() => ({
 
     "&:hover": {
         "&.back-button": {
-            background: "linear-gradient(to right,rgba(255,255,255,1),transparent) !important"
+            background: "linear-gradient(to right,rgba(255,255,255,0.3),transparent) !important"
         },
         "&.next-button": {
-            background: "linear-gradient(to left,rgba(255,255,255,1),transparent) !important"
+            background: "linear-gradient(to left,rgba(255,255,255,0.3),transparent) !important"
         },
         // 按钮悬浮border动画 - 开始
         "&:before, &:after": {
@@ -179,18 +179,18 @@ function CardStepper() {
 
   const NextButtonDisplayStyle = {
     display: activeStep === maxSteps - 1?"none":"inline-flex",
-    left: "calc(100% - 100px)",
+    left: "calc(100% - 90px)",
     background: "linear-gradient(to left,rgba(255,255,255,0.2),transparent)",
     transition: "background-color 1s",
   }
 
   return (
-    <Box sx={{ flexGrow: 1, width: "95%", marginTop: "30px", position: "relative" }}>
+    <Box sx={{ flexGrow: 1, width: "100%", marginTop: "30px", position: "relative" }}>
         <StyledButton className='back-button' size="small" onClick={handleBack} disabled={activeStep === 0} style={BackButtonDisplayStyle}>
-                Back
+        <DoubleArrowSharpIcon sx={{ fontSize: 40, transform: "rotate(180deg)", transformOrigin: "center center", color: "white" }}/>
         </StyledButton>
         <StyledButton className='next-button' size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1} style={NextButtonDisplayStyle}>
-                Next
+        <DoubleArrowSharpIcon sx={{ fontSize: 40, color: "white" }}/>
         </StyledButton>
       <SwipeableViews
         resistance
@@ -198,9 +198,10 @@ function CardStepper() {
         index={activeStep}
         onChangeIndex={handleStepChange}
         enableMouseEvents
-        style={{padding: '0 120px 0 0'}}
+        style={{padding: '0 90px 0 0'}}
         >
         {images.map((step, index) => (
+            console.log("log"+Math.abs(activeStep - index)),
           <div key={step.label}>
             {Math.abs(activeStep - index) <= 2 ? (
             <CustomCard
@@ -216,6 +217,8 @@ function CardStepper() {
           </div>
         ))}
       </SwipeableViews>
+      
+      {/* 有空加个彩蛋 <img className="solid-logo" src={LogoZ} alt={'Z'} /> */}
     </Box>
   );
 }
