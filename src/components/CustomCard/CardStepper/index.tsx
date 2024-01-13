@@ -16,66 +16,69 @@ import LK from '../../../assets/images/whiskey/cody-chan-hLgKiFcVuDY-unsplash.jp
 import CVS from '../../../assets/images/whiskey/kartikeya-srivastava-Wn07Sg4O2LY-unsplash.jpg'
 import LogoZ from '../../../assets/images/logo-z.svg'
 
-const AutoPlaySwipeableViews = SwipeableViews;
+// const AutoPlaySwipeableViews = SwipeableViews;
 
 const images = [
-  {
-    label: 'Johnnie walker',
-    color: "#fc7944",
-    cover: JD,
-    logo: JDLogo,
-    title: 
-        <>
-          Astronomy Binoculars
-          <br />A Great Alternative
-        </>
-      ,
-    imgSource: "Pexels",
-    imgAuthor: "Marcelo Verfe",
-    date: "02.04.2020",
-  },
-  {
-    label: 'Johnniwalker',
-    color: "#fc7944",
-    cover: LK,
-    logo: JDLogo,
-    title: 
-        <>
-        Astronomy Binoculars
-        <br />A Great Alternative
-        </>
-    ,
-    imgSource: "Pexels",
-    imgAuthor: "Marcelo Verfe",
-    date: "02.04.2020",  },
-  {
-    label: 'Johnnie wker',
-    color: "#fc7944",
-    cover: CVS,
-    logo: JDLogo,
-    title: 
-        <>
-        Astronomy Binoculars
-        <br />A Great Alternative
-        </>
-    ,    
-    imgSource: "Pexels",
-    imgAuthor: "Marcelo Verfe",
-    date: "02.04.2020",  },
-  {
-    label: 'Johnnie walr',
-    color: "#fc7944",
-    cover: JD,
-    logo: JDLogo,
-    title: 
-        <>
-        Astronomy Binoculars
-        <br />A Great Alternative
-        </>
-    ,
-    imgSource: "Pexels",
-    imgAuthor: "Marcelo Verfe",
-    date: "02.04.2020",  },
+    {
+        label: 'Johnnie walker',
+        color: "#fc7944",
+        cover: JD,
+        logo: JDLogo,
+        title:
+            <>
+                Astronomy Binoculars
+                <br />A Great Alternative
+            </>
+        ,
+        imgSource: "Pexels",
+        imgAuthor: "Marcelo Verfe",
+        date: "02.04.2020",
+    },
+    {
+        label: 'Johnniwalker',
+        color: "#fc7944",
+        cover: LK,
+        logo: JDLogo,
+        title:
+            <>
+                Astronomy Binoculars
+                <br />A Great Alternative
+            </>
+        ,
+        imgSource: "Pexels",
+        imgAuthor: "Marcelo Verfe",
+        date: "02.04.2020",
+    },
+    {
+        label: 'Johnnie wker',
+        color: "#fc7944",
+        cover: CVS,
+        logo: JDLogo,
+        title:
+            <>
+                Astronomy Binoculars
+                <br />A Great Alternative
+            </>
+        ,
+        imgSource: "Pexels",
+        imgAuthor: "Marcelo Verfe",
+        date: "02.04.2020",
+    },
+    {
+        label: 'Johnnie walr',
+        color: "#fc7944",
+        cover: JD,
+        logo: JDLogo,
+        title:
+            <>
+                Astronomy Binoculars
+                <br />A Great Alternative
+            </>
+        ,
+        imgSource: "Pexels",
+        imgAuthor: "Marcelo Verfe",
+        date: "02.04.2020",
+    },
 ];
 
 const StyledButton = styled(Button)(() => ({
@@ -84,7 +87,9 @@ const StyledButton = styled(Button)(() => ({
     height: "100%",
     width: "5%",
     minWidth: "90px",
-    transition: "background-color 1s",
+    transition: "height 0.3s ease",
+    top: "50%",
+    transform: "translateY(-50%)",
 
     // 按钮悬浮border动画 - 开始
     "&::before, &::after": {
@@ -93,7 +98,7 @@ const StyledButton = styled(Button)(() => ({
         height: "2px",
         position: "absolute",
         transition: "all .2s linear",
-        background: "rgba(255,255,255,0.3)"
+        background: "rgba(255,255,255,0.1)"
     },
 
     "span::before, span::after": {
@@ -102,7 +107,7 @@ const StyledButton = styled(Button)(() => ({
         height: "0",
         position: "absolute",
         transition: "all .2s linear",
-        background: "rgba(255,255,255,0.3)"
+        background: "rgba(255,255,255,0.2)"
     },
 
     "&:before, &:after": {
@@ -135,9 +140,11 @@ const StyledButton = styled(Button)(() => ({
 
     "&:hover": {
         "&.back-button": {
+            height: "90%",
             background: "linear-gradient(to right,rgba(255,255,255,0.3),transparent) !important"
         },
         "&.next-button": {
+            height: "90%",
             background: "linear-gradient(to left,rgba(255,255,255,0.3),transparent) !important"
         },
         // 按钮悬浮border动画 - 开始
@@ -153,74 +160,102 @@ const StyledButton = styled(Button)(() => ({
     }
 }));
 
+const MobileStepperContainer = styled('div')(() => ({
+    display: "flex",
+    justifyContent: "center",
+    "& .MuiMobileStepper-dotActive": {
+        background: "rgb(237, 203, 184)",
+    },
+    "& .MuiMobileStepper-root": {
+        background: "rgba(255,255,255,0.2)",
+    }
+}));
+
 function CardStepper() {
-  const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
-  const maxSteps = images.length;
+    const theme = useTheme();
+    const [activeStep, setActiveStep] = React.useState(0);
+    const maxSteps = images.length;
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    };
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
 
-  const handleStepChange = (step: number) => {
-    setActiveStep(step);
-  };
+    const handleStepChange = (step: number) => {
+        setActiveStep(step);
+    };
 
-  // 这里通过step控制显示button与否
-  const BackButtonDisplayStyle = {
-    display: activeStep === 0?"none":"inline-flex",
-    background: "linear-gradient(to right,rgba(255,255,255,0.2),transparent)",
-    transition: "background-color 1s",
-  }
+    // 这里通过step控制显示button与否
+    const BackButtonDisplayStyle = {
+        display: activeStep === 0 ? "none" : "inline-flex",
+        left: "0%",
+        background: "linear-gradient(to right,rgba(255,255,255,0.2),transparent)",
+    }
 
-  const NextButtonDisplayStyle = {
-    display: activeStep === maxSteps - 1?"none":"inline-flex",
-    left: "calc(100% - 90px)",
-    background: "linear-gradient(to left,rgba(255,255,255,0.2),transparent)",
-    transition: "background-color 1s",
-  }
+    const NextButtonDisplayStyle = {
+        display: activeStep === maxSteps - 1 ? "none" : "inline-flex",
+        left: "calc(100% - 90px)",
+        background: "linear-gradient(to left,rgba(255,255,255,0.2),transparent)",
+    }
 
-  return (
-    <Box sx={{ flexGrow: 1, width: "100%", marginTop: "30px", position: "relative" }}>
-        <StyledButton className='back-button' size="small" onClick={handleBack} disabled={activeStep === 0} style={BackButtonDisplayStyle}>
-        <DoubleArrowSharpIcon sx={{ fontSize: 40, transform: "rotate(180deg)", transformOrigin: "center center", color: "white" }}/>
-        </StyledButton>
-        <StyledButton className='next-button' size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1} style={NextButtonDisplayStyle}>
-        <DoubleArrowSharpIcon sx={{ fontSize: 40, color: "white" }}/>
-        </StyledButton>
-      <SwipeableViews
-        resistance
-        axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-        index={activeStep}
-        onChangeIndex={handleStepChange}
-        enableMouseEvents
-        style={{padding: '0 90px 0 0'}}
-        >
-        {images.map((step, index) => (
-            console.log("log"+Math.abs(activeStep - index)),
-          <div key={step.label}>
-            {Math.abs(activeStep - index) <= 2 ? (
-            <CustomCard
-                color={step.color}
-                imgSource={"step.imgSource"}
-                imgAuthor={"step.imgAuthor"}
-                date={step.date}
-                cover={step.cover}
-                logo={step.logo}
-                title={step.title}
-            />
-            ) : null}
-          </div>
-        ))}
-      </SwipeableViews>
-      
-      {/* 有空加个彩蛋 <img className="solid-logo" src={LogoZ} alt={'Z'} /> */}
-    </Box>
-  );
+    return (
+        // 这里加了一个最大高度600px，如果要改的话，需要和卡片高度一起改
+        <Box sx={{ flexGrow: 1, width: "100%", marginTop: "30px", maxHeight: "600px", position: "relative" }}>
+            <StyledButton className='back-button' size="small" onClick={handleBack} disabled={activeStep === 0} style={BackButtonDisplayStyle} disableRipple>
+                <span>
+                    <DoubleArrowSharpIcon sx={{ fontSize: 40, transform: "rotate(180deg)", transformOrigin: "center center", color: "rgba(255,255,255,0.3)" }} />
+                </span>
+            </StyledButton>
+            <StyledButton className='next-button' size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1} style={NextButtonDisplayStyle} disableRipple>
+                <span>
+                    <DoubleArrowSharpIcon sx={{ fontSize: 40, color: "rgba(255,255,255,0.3)" }} />
+                </span>
+            </StyledButton>
+            <SwipeableViews
+                resistance
+                axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                index={activeStep}
+                onChangeIndex={handleStepChange}
+                enableMouseEvents
+                style={{ padding: '0 90px 0 0' }}
+            >
+                {images.map((step, index) => (
+                    // console.log("log" + Math.abs(activeStep - index)),
+                    <div key={step.label}>
+                        {Math.abs(activeStep - index) <= 2 ? (
+                            <CustomCard
+                                color={step.color}
+                                imgSource={"step.imgSource"}
+                                imgAuthor={"step.imgAuthor"}
+                                date={step.date}
+                                cover={step.cover}
+                                logo={step.logo}
+                                title={step.title}
+                            />
+                        ) : null}
+                    </div>
+                ))}
+            </SwipeableViews>
+
+            {/* 有空加个彩蛋 <img className="solid-logo" src={LogoZ} alt={'Z'} /> */}
+            <MobileStepperContainer>
+                <MobileStepper
+                    steps={maxSteps}
+                    position="static"
+                    activeStep={activeStep}
+                    nextButton={
+                        <></>
+                    }
+                    backButton={
+                        <></>
+                    }
+                />
+            </MobileStepperContainer>
+        </Box>
+    );
 }
 
 export default CardStepper;
