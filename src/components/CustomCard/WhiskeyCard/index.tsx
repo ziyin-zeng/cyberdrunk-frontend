@@ -7,8 +7,8 @@ import Box from "@mui/material/Box";
 import CardMedia from "@mui/material/CardMedia";
 import Grid from "@mui/material/Grid";
 import { Row, Item } from "@mui-treasury/components/flex";
-import IconButton from '@material-ui/core/IconButton';
-import FavoriteBorderRounded from '@material-ui/icons/FavoriteBorderRounded';
+// import IconButton from '@material-ui/core/IconButton';
+// import FavoriteBorderRounded from '@material-ui/icons/FavoriteBorderRounded';
 import JD from '../../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg';
 import JDLogo from '../../../assets/images/whiskey/logo/johnnie-walker-brand.avif';
 import LK from '../../../assets/images/whiskey/cody-chan-hLgKiFcVuDY-unsplash.jpg'
@@ -25,9 +25,8 @@ const StyledRoot = styled("div")<{ color?: string }>(
     borderRadius: "1rem",
     minWidth: 600,
     // maxWidth: 1200,
-    width: "100%",
-    minHeight: 600,
-    padding: '0 24px 0 0',
+    width: "calc(100% - 24px)",
+    minHeight: 580,
     display: "flex",
     justifyContent: "flex-end",
     "&:before": {
@@ -40,22 +39,26 @@ const StyledRoot = styled("div")<{ color?: string }>(
       borderRadius: "1rem",
       zIndex: 0,
       bottom: 0,
-      backgroundColor: Color(color).darken(0.3).desaturate(0.2).string(),
+      left: 0,
+      backgroundColor: Color(color).darken(0.2).desaturate(0.2).string(),
     },
     "&:hover": {
-      "&:before": {
-        bottom: -10,
-      },
       "& .MuiAvatar-root": {
         transform: "scale(1.1)",
         boxShadow: "0 6px 20px 0 rgba(0,0,0,0.38)",
       },
       "& .MuiCardMedia-root": {
-        left: -20,
+        transform: "scale(0.97)",
+        backgroundPosition: "left -100px top 50%",
       },
       "& .StyledContent": {
-        width: "60%",
-        bottom: -6,
+        width: "40%",
+        "&:before": {
+          // background: `linear-gradient(to right, ${color}, ${Color(color)
+          //   .rotate(-24)
+          //   .lighten(0.5)})`,
+          background: Color(color).darken(0.3).desaturate(0.2).string()
+        },    
       },
       "& .StyledH2": {
         display: "block"
@@ -72,14 +75,16 @@ const CardMediaCover = styled(CardMedia)(() => ({
   borderRadius: "1rem",
   position: "absolute",
   transition: "0.5s",
-  width: "85%",
+  width: "100%",
   height: "100%",
   minHeight: 300,
   top: 0,
   left: 0,
   zIndex: 0,
   backgroundColor: "rgba(0, 0, 0, 0.08)",
-  backgroundPosition: "center",
+  backgroundPosition: "left -150px top 50%",
+  backgroundSize: "cover",
+  transform: "scale(1)"
 }));
 
 const StyledH2 = styled("h2")(() => ({
@@ -93,13 +98,15 @@ const StyledH2 = styled("h2")(() => ({
 const StyledContent = styled("div")<{ color?: string }>(
   ({ color = defaultColor }) => ({
     position: "relative",
+    display: "flex",
+    alignItems: "center",
     transition: "1s",
     zIndex: 1,
     // padding: "1rem",
     borderRadius: "1rem",
-    width: "30%",
+    width: "15%",
     height: "100%",
-    minHeight: 600, 
+    minHeight: 580, 
     // boxShadow: `0 6px 16px 0 ${Color(color).fade(0.5)}`,
     "&:before": {
       content: '""',
@@ -109,15 +116,17 @@ const StyledContent = styled("div")<{ color?: string }>(
       zIndex: 0,
       width: "100%",
       height: "100%",
+      transition: "background 1s",
       clipPath:
-        "polygon(0% 100%, 0% 85%, 0.3% 83%, 1% 81%, 1.5% 80%, 2% 79%,32.7% 1.5%,33% 1%, 34% 0.3%,35% 0%,100% 0%, 100% 100%)",
+        // "polygon(0% 100%, 0% 85%, 0.3% 83%, 1% 81%, 1.5% 80%, 2% 79%,32.7% 1.5%,33% 1%, 34% 0.3%,35% 0%,100% 0%, 100% 100%)",
         // "polygon(0% 100%, 0% 0%, 5% 0%, 95% 27%, 96.7% 27.6%, 97% 27.9%, 97.5% 28.4%, 98% 29%, 98.5% 30%, 99% 31%, 99.7% 33%, 100% 35%, 100% 100%)",
         // "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-        // "polygon(60% 0, 100% 0, 100% 100%, 0 100%, 0 80%, 10% 80%, 18% 78%, 25% 78%, 31% 75%, 35% 72%, 39% 64%, 43% 56%, 47% 48%, 51% 40%, 54% 32%, 56% 24%, 58% 16%, 59% 8%)",
+        "polygon(100% 0%, 100% 50%, 100% 100%, 15% 100%, 0% 50%, 15% 0%)",
       borderRadius: "1rem",
-      background: `linear-gradient(to right, ${color}, ${Color(color)
-        .rotate(24)
-        .lighten(0.1)})`,
+      // background: `linear-gradient(to right, ${color}, ${Color(color)
+      //   .rotate(-24)
+      //   .lighten(0.5)})`,
+      background: Color(color).darken(0.3).desaturate(0.2).string()
     },
   })
 );
@@ -171,7 +180,7 @@ const CustomCard = ({
     <StyledRoot color={color}>
       {/* 定 className 是为了在上面 hover 的时候可以被类选择器选到 */}
       {/* 定 style 是为了直接应用 display none */}
-      <Item cssPosition={"absolute"} zIndex={1} left={0} bottom={5} style={MuiItemStyle} className={"ImgSource"}>
+      <Item cssPosition={"absolute"} zIndex={1} left={20} bottom={5} style={MuiItemStyle} className={"ImgSource"}>
         <StyledDivTeam>From {imgSource}</StyledDivTeam>
         <StyledDivTeam>By {imgAuthor}</StyledDivTeam>
       </Item>
@@ -180,18 +189,18 @@ const CustomCard = ({
       <StyledContent color={color} className={"StyledContent"}>
         <Box position={"relative"} zIndex={1}>
           <Row p={0} gap={1}>
-            <Item className="logo" ml="72px">
+            <Item className="logo">
               <AvatarLogo src={logo} />
             </Item>
             <Item alignSelf="flex-end">
               <StyledH2 className="StyledH2">{title}</StyledH2>
             </Item>
           </Row>
-          <Row mt={4} alignItems={"center"}>
+          {/* <Row alignItems={"center"}>
             <Item ml="auto">
               <StyledDivDate>{date}</StyledDivDate>
             </Item>
-          </Row>
+          </Row> */}
         </Box>
       </StyledContent>
     </StyledRoot>

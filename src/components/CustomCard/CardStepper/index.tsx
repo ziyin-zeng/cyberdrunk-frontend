@@ -14,6 +14,7 @@ import JD from '../../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg
 import JDLogo from '../../../assets/images/whiskey/logo/johnnie-walker-brand.avif';
 import LK from '../../../assets/images/whiskey/cody-chan-hLgKiFcVuDY-unsplash.jpg'
 import CVS from '../../../assets/images/whiskey/kartikeya-srivastava-Wn07Sg4O2LY-unsplash.jpg'
+import MCL from '../../../assets/images/whiskey/daniel-horvath-ZdoDrx4u7WA-unsplash.jpg'
 import LogoZ from '../../../assets/images/logo-z.svg'
 
 // const AutoPlaySwipeableViews = SwipeableViews;
@@ -67,7 +68,7 @@ const images = [
     {
         label: 'Johnnie walr',
         color: "#fc7944",
-        cover: JD,
+        cover: MCL,
         logo: JDLogo,
         title:
             <>
@@ -163,6 +164,7 @@ const StyledButton = styled(Button)(() => ({
 const MobileStepperContainer = styled('div')(() => ({
     display: "flex",
     justifyContent: "center",
+    marginTop: "5px",
     "& .MuiMobileStepper-dotActive": {
         background: "rgb(237, 203, 184)",
     },
@@ -203,7 +205,7 @@ function CardStepper() {
 
     return (
         // 这里加了一个最大高度600px，如果要改的话，需要和卡片高度一起改
-        <Box sx={{ flexGrow: 1, width: "100%", marginTop: "30px", maxHeight: "600px", position: "relative" }}>
+        <Box sx={{ flexGrow: 1, width: "85%", height: "600px", position: "relative" }}>
             <StyledButton className='back-button' size="small" onClick={handleBack} disabled={activeStep === 0} style={BackButtonDisplayStyle} disableRipple>
                 <span>
                     <DoubleArrowSharpIcon sx={{ fontSize: 40, transform: "rotate(180deg)", transformOrigin: "center center", color: "rgba(255,255,255,0.3)" }} />
@@ -220,11 +222,11 @@ function CardStepper() {
                 index={activeStep}
                 onChangeIndex={handleStepChange}
                 enableMouseEvents
-                style={{ padding: '0 90px 0 0' }}
+                style={{ padding: '0 90px 0 0', height: "100%" }}
             >
                 {images.map((step, index) => (
                     // console.log("log" + Math.abs(activeStep - index)),
-                    <div key={step.label}>
+                    <div key={step.label} style={{margin:"10px 0px 10px 0px"}}>
                         {Math.abs(activeStep - index) <= 2 ? (
                             <CustomCard
                                 color={step.color}

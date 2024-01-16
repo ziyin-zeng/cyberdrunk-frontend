@@ -1,6 +1,8 @@
 .bistrot-page {
-    .text-zone {
+    .content-zone {
       position: absolute;
+      display: flex;
+      flex-direction: column;
     //   left: 10%; // ===== responsive ===== 如果页面很窄，必然会与左边的sidebar重合，因为sidebar定的是60px固定值
       top: 50%; // box模型的上顶线与页面正中线重合
       transform: translateY(
@@ -8,7 +10,7 @@
       ); // 在上面的top里定义50%之后，这里似乎会将box模型的正中线重合到页面正中线位置，即dead center正正中心
       width: 95%;
       left: 5%;
-      height: 90%
+      height: 90%;
     }
     h2 {
         color: #edcbb8;
