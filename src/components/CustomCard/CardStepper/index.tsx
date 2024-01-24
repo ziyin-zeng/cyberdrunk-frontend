@@ -10,77 +10,10 @@ import DoubleArrowSharpIcon from '@mui/icons-material/DoubleArrowSharp';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
 import CustomCard from '../WhiskeyCard';
-import JD from '../../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg';
-import JDLogo from '../../../assets/images/whiskey/logo/johnnie-walker-brand.avif';
-import LK from '../../../assets/images/whiskey/cody-chan-hLgKiFcVuDY-unsplash.jpg'
-import CVS from '../../../assets/images/whiskey/kartikeya-srivastava-Wn07Sg4O2LY-unsplash.jpg'
-import MCL from '../../../assets/images/whiskey/daniel-horvath-ZdoDrx4u7WA-unsplash.jpg'
 import LogoZ from '../../../assets/images/logo-z.svg'
+import { CardStepperProps } from './types'
 
 // const AutoPlaySwipeableViews = SwipeableViews;
-
-const images = [
-    {
-        label: 'Johnnie walker',
-        color: "#fc7944",
-        cover: JD,
-        logo: JDLogo,
-        title:
-            <>
-                Astronomy Binoculars
-                <br />A Great Alternative
-            </>
-        ,
-        imgSource: "Pexels",
-        imgAuthor: "Marcelo Verfe",
-        date: "02.04.2020",
-    },
-    {
-        label: 'Johnniwalker',
-        color: "#fc7944",
-        cover: LK,
-        logo: JDLogo,
-        title:
-            <>
-                Astronomy Binoculars
-                <br />A Great Alternative
-            </>
-        ,
-        imgSource: "Pexels",
-        imgAuthor: "Marcelo Verfe",
-        date: "02.04.2020",
-    },
-    {
-        label: 'Johnnie wker',
-        color: "#fc7944",
-        cover: CVS,
-        logo: JDLogo,
-        title:
-            <>
-                Astronomy Binoculars
-                <br />A Great Alternative
-            </>
-        ,
-        imgSource: "Pexels",
-        imgAuthor: "Marcelo Verfe",
-        date: "02.04.2020",
-    },
-    {
-        label: 'Johnnie walr',
-        color: "#fc7944",
-        cover: MCL,
-        logo: JDLogo,
-        title:
-            <>
-                Astronomy Binoculars
-                <br />A Great Alternative
-            </>
-        ,
-        imgSource: "Pexels",
-        imgAuthor: "Marcelo Verfe",
-        date: "02.04.2020",
-    },
-];
 
 const StyledButton = styled(Button)(() => ({
     zIndex: 4,
@@ -173,10 +106,17 @@ const MobileStepperContainer = styled('div')(() => ({
     }
 }));
 
-function CardStepper() {
+function CardStepper(props: CardStepperProps) {
+    const { onStateChange, cardList } = props;
+
     const theme = useTheme();
     const [activeStep, setActiveStep] = React.useState(0);
-    const maxSteps = images.length;
+    const maxSteps = cardList.length;
+
+    React.useEffect(() => {
+        console.log("changed", activeStep)
+        onStateChange(activeStep)
+    }, [activeStep]);
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -224,11 +164,12 @@ function CardStepper() {
                 enableMouseEvents
                 style={{ padding: '0 90px 0 0', height: "100%" }}
             >
-                {images.map((step, index) => (
+                {cardList.map((step, index) => (
                     // console.log("log" + Math.abs(activeStep - index)),
-                    <div key={step.label} style={{margin:"10px 0px 10px 0px"}}>
+                    <div key={step.brand} style={{ margin: "10px 0px 10px 0px" }}>
                         {Math.abs(activeStep - index) <= 2 ? (
                             <CustomCard
+                                brand={step.brand}
                                 color={step.color}
                                 imgSource={"step.imgSource"}
                                 imgAuthor={"step.imgAuthor"}

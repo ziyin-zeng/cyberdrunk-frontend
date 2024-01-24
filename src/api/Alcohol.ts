@@ -15,3 +15,7 @@ export default {
 export const getAlcoholByCat = (cat: number) => {
     return get(`/alcohol/${cat}`);
 }
+
+export const getWhiskeyBrand = () => {
+    return get(`/bar`);
+}

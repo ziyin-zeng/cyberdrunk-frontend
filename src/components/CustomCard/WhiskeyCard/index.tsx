@@ -13,6 +13,8 @@ import JD from '../../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg
 import JDLogo from '../../../assets/images/whiskey/logo/johnnie-walker-brand.avif';
 import LK from '../../../assets/images/whiskey/cody-chan-hLgKiFcVuDY-unsplash.jpg'
 import CVS from '../../../assets/images/whiskey/kartikeya-srivastava-Wn07Sg4O2LY-unsplash.jpg'
+import { WhiskeyCardProps } from './types'
+import { useNavigate } from 'react-router-dom'; 
 // import {rotateLeft} from "react-magic";
 // import animated from 'animate.css'
 
@@ -58,7 +60,7 @@ const StyledRoot = styled("div")<{ color?: string }>(
           //   .rotate(-24)
           //   .lighten(0.5)})`,
           background: Color(color).darken(0.3).desaturate(0.2).string()
-        },    
+        },
       },
       "& .StyledH2": {
         display: "block"
@@ -106,7 +108,7 @@ const StyledContent = styled("div")<{ color?: string }>(
     borderRadius: "1rem",
     width: "15%",
     height: "100%",
-    minHeight: 580, 
+    minHeight: 580,
     // boxShadow: `0 6px 16px 0 ${Color(color).fade(0.5)}`,
     "&:before": {
       content: '""',
@@ -155,37 +157,27 @@ const StyledDivDate = styled("div")(({ theme }) => ({
   borderRadius: 12,
 }));
 
-const MuiItemStyle:React.CSSProperties = {
+const MuiItemStyle: React.CSSProperties = {
   display: "none",
 }
 
-const CustomCard = ({
-  color,
-  cover,
-  logo,
-  title,
-  imgSource,
-  imgAuthor,
-  date,
-}: {
-  color?: string;
-  cover: string;
-  logo: string;
-  title: React.ReactNode;
-  imgSource: string;
-  imgAuthor: string;
-  date: string;
-}) => {
+const CustomCard = (props: WhiskeyCardProps) => {
+  const { color, imgSource, imgAuthor, cover, logo, title, brand } = props;
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('./brand');
+  }
   return (
-    <StyledRoot color={color}>
+    <StyledRoot color={color} onClick={handleClick}>
       {/* 定 className 是为了在上面 hover 的时候可以被类选择器选到 */}
       {/* 定 style 是为了直接应用 display none */}
       <Item cssPosition={"absolute"} zIndex={1} left={20} bottom={5} style={MuiItemStyle} className={"ImgSource"}>
         <StyledDivTeam>From {imgSource}</StyledDivTeam>
         <StyledDivTeam>By {imgAuthor}</StyledDivTeam>
       </Item>
-      
-      <CardMediaCover image={cover}/>
+
+      <CardMediaCover image={cover} />
       <StyledContent color={color} className={"StyledContent"}>
         <Box position={"relative"} zIndex={1}>
           <Row p={0} gap={1}>
@@ -196,11 +188,11 @@ const CustomCard = ({
               <StyledH2 className="StyledH2">{title}</StyledH2>
             </Item>
           </Row>
-          {/* <Row alignItems={"center"}>
+          <Row alignItems={"center"}>
             <Item ml="auto">
-              <StyledDivDate>{date}</StyledDivDate>
+              <StyledDivDate>{brand}</StyledDivDate>
             </Item>
-          </Row> */}
+          </Row>
         </Box>
       </StyledContent>
     </StyledRoot>
@@ -209,67 +201,12 @@ const CustomCard = ({
 export default CustomCard
 
 // 这里的断言很重要，没有的话是通不过的
-const GridStyle:React.CSSProperties = {
-  overflowX: "scroll",
-  whiteSpace: "nowrap",
-  height: "100%"
-};
+// const GridStyle: React.CSSProperties = {
+//   overflowX: "scroll",
+//   whiteSpace: "nowrap",
+//   height: "100%"
+// };
 
-const GridItemStyle:React.CSSProperties = {
-  paddingRight: "32px",
-};
-
-export function CardHighlight() {
-  return (
-    <Grid wrap={"nowrap"} container spacing={4} style={GridStyle}>
-      <Grid item>
-        <CustomCard
-          color="#fc7944"
-          imgSource={"Pexels"}
-          imgAuthor={"Marcelo Verfe"}
-          date={"02.04.2020"}
-          cover={JD}
-          logo={JDLogo}
-          title={
-            <>
-              Astronomy Binoculars
-              <br />A Great Alternative
-            </>
-          }
-        />
-      </Grid>
-      <Grid item>
-        <CustomCard
-          color="#009077"
-          imgSource={"Unsplash"}
-          imgAuthor={"Cody Chan"}
-          date={"02.04.2020"}
-          cover={LK}
-          logo={LK}
-          title={
-            <>
-              Astronomy Binoculars
-              <br />A Great Alternative
-            </>
-          }
-        />
-      </Grid>
-      <Grid item style={GridItemStyle}>
-        <CustomCard
-          color="#FC8A44"
-          imgSource={"Unsplash"}
-          imgAuthor={"Kartikeya Srivastava"}
-          date={"02.04.2020"}
-          cover={CVS}
-          logo={CVS}
-          title={
-            <>
-              Astronomy Binoculars
-              <br />A Great Alternative
-            </>
-          }
-        />
-      </Grid>
-    </Grid>
-  );
-}
+// const GridItemStyle: React.CSSProperties = {
+//   paddingRight: "32px",
+// };
