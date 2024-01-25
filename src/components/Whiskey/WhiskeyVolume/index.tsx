@@ -1,9 +1,14 @@
 // 导入子组件
+import { styled } from "@mui/material/styles";
+import Whiskey from "..";
+import { WhiskeyVolumeProps } from "./types"
 
-const WhiskeyVolume = () => {
+
+const WhiskeyVolume = (props:WhiskeyVolumeProps) => {
+    const {style} = props;
     return (
         <>
-            <div>RemainedVolume</div>
+            <div style={style}>RemainedVolume</div>
         </>
     )
 }

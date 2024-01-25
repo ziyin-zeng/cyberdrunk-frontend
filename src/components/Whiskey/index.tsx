@@ -1,26 +1,28 @@
+// mui
+import { styled } from "@mui/material/styles";
+
 // 导入子组件
 import WhiskeyTitle from './WhiskeyTitle'
 import WhiskeyContent from './WhiskeyContent'
 import WhiskeyVolume from './WhiskeyVolume'
-import { styled } from "@mui/material/styles";
+
+// 导入图片
+import JD from '../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg';
+
 
 const WhiskeyContainer = styled("div")(()=>({
     display: "flex",
     flexDirection: "column",
     width: "95%",
-    height: "1500px",
-    marginLeft: "3%",
+    margin: "auto",
     border: "solid blue",
-    overflow: "scroll",
     position: "relative",
-    // top: 0,
-    // left: 0,
 }))
 
 const WhiskeyTitleStyles: React.CSSProperties = {
-    paddingRight: "60px",
     height: "100px",
-    position: "fixed",
+    position: "sticky",
+    top: "0px",
     width: "100%",
     border: "solid red",
     transform: "translateY(0)",
@@ -30,19 +32,22 @@ const WhiskeyContentStyles: React.CSSProperties = {
     display: "flex",
     flexDirection: "row",
     paddingRight: "60px",
-    height: "3000px",
     minHeight: "540px",
     position: "relative",
-    marginTop: "100px"
+};
+
+const WhiskeyVolumeStyles: React.CSSProperties = {
+    height: "832px",
+    paddingTop: "130px",
 };
 
 const Whiskey = () => {
     
     return (
-        <WhiskeyContainer>
+        <WhiskeyContainer className='WhiskeyContainer'>
             <WhiskeyTitle style={WhiskeyTitleStyles}/>
-            <WhiskeyContent style={WhiskeyContentStyles}/>
-            <WhiskeyVolume />
+            <WhiskeyContent style={WhiskeyContentStyles} img={JD}/>
+            <WhiskeyVolume style={WhiskeyVolumeStyles}/>
         </WhiskeyContainer>
     )
 }

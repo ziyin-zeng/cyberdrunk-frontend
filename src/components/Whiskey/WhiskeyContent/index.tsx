@@ -16,11 +16,10 @@ const WhiskeyImgContainer = styled("div")(()=>({
 const WhiskeyTimelineContainer = styled("div")(()=>({
     position: "relative",
     width: "30%",
-    height: "3000px"
 }))
 
 const WhiskeyContent = (props:WhiskeyContentProps) => {
-    const {style} = props;
+    const {style, img} = props;
     const HeaderStyle = {
         border: "solid yellow",
         width: "100%",
@@ -30,7 +29,7 @@ const WhiskeyContent = (props:WhiskeyContentProps) => {
         <>
             <div style={style}>
                 {/* <div className="whiskey-header" style={HeaderStyle}></div> */}
-                <WhiskeyImgContainer>Img</WhiskeyImgContainer>
+                <WhiskeyImgContainer>{img}</WhiskeyImgContainer>
                 <WhiskeyTimelineContainer>
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
@@ -43,6 +42,13 @@ const WhiskeyContent = (props:WhiskeyContentProps) => {
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export the end</h1>
                 </WhiskeyTimelineContainer>
             </div>
         </>
