@@ -4,7 +4,7 @@ import { styled } from "@mui/material/styles"
 import { doAlgoTriInsertion } from '../../api/Tri'
 import { getWhiskeyBrand } from '../../api/Alcohol'
 import CardStepper from '../CustomCard/CardStepper'
-import WhiskeyTitle from '../CustomCard/WhiskeyTitle'
+import WhiskeyTransitionTitle from '../CustomCard/WhiskeyTransitionTitle'
 // import { CardHighlight } from '../CustomCard/WhiskeyCard'
 import JD from '../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg';
 import JDLogo from '../../assets/images/whiskey/logo/johnnie-walker-brand.avif';
@@ -111,7 +111,7 @@ const Bistrot = () => {
     <div className={'container bistrot-page'}>
       <div className={'content-zone'}>
         {/* <h2 style={{ height: "10%" }}>{title}</h2> */}
-        <WhiskeyTitle title={TitleList[activeIndex]} />
+        <WhiskeyTransitionTitle title={TitleList[activeIndex]} />
         <StyledFlexBox>
           <div style={{ border: "solid", width: "15%", height: "30%" }}>sometihngsometihngsometihng</div>
           <CardStepper onStateChange={handleStateChangeRef.current} cardList={cards} />

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { WhiskeyTitleProps } from './types';
+import { WhiskeyTransitionTitleProps } from './types';
 import TextTransition, { presets } from 'react-text-transition';
 
 // const TEXTS = ['Forest', 'Building', 'Tree', 'Color'];
 
-const WhiskeyTitle = (props:WhiskeyTitleProps) => {
+const WhiskeyTransitionTitle = (props:WhiskeyTransitionTitleProps) => {
   const { title } = props;
 
   const [index, setIndex] = useState(0);
@@ -31,4 +31,4 @@ const WhiskeyTitle = (props:WhiskeyTitleProps) => {
   );
 };
 
-export default WhiskeyTitle;
+export default WhiskeyTransitionTitle;

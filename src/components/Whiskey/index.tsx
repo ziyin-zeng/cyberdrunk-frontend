@@ -20,12 +20,14 @@ const WhiskeyContainer = styled("div")(()=>({
 }))
 
 const WhiskeyTitleStyles: React.CSSProperties = {
-    height: "100px",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
     position: "sticky",
     top: "0px",
     width: "100%",
+    height: "fit-content",
     border: "solid red",
-    transform: "translateY(0)",
 };
 
 const WhiskeyContentStyles: React.CSSProperties = {
@@ -42,10 +44,22 @@ const WhiskeyVolumeStyles: React.CSSProperties = {
 };
 
 const Whiskey = () => {
+    const jiashuju = {
+        brandName: "Chivas Regal",
+        tasteType: "B1",
+        cocktailChoice: {
+            soda: 5,
+            cola: 4,
+            coconut: 5,
+            tea: 1
+        },
+        content: "timeline blablablabla",
+        volume: 0.7
+    }
     
     return (
         <WhiskeyContainer className='WhiskeyContainer'>
-            <WhiskeyTitle style={WhiskeyTitleStyles}/>
+            <WhiskeyTitle style={WhiskeyTitleStyles} data={jiashuju}/>
             <WhiskeyContent style={WhiskeyContentStyles} img={JD}/>
             <WhiskeyVolume style={WhiskeyVolumeStyles}/>
         </WhiskeyContainer>
