@@ -6,7 +6,7 @@ import WhiskeyTitle from './WhiskeyTitle'
 import WhiskeyContent from './WhiskeyContent'
 import WhiskeyVolume from './WhiskeyVolume'
 
-// 导入图片
+// 导入图片，实际应该是调API
 import JD from '../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg';
 
 
@@ -14,26 +14,18 @@ const WhiskeyContainer = styled("div")(()=>({
     display: "flex",
     flexDirection: "column",
     width: "95%",
-    margin: "auto",
+    margin: "34px auto",
     border: "solid blue",
     position: "relative",
 }))
 
 const WhiskeyTitleStyles: React.CSSProperties = {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    position: "sticky",
-    top: "0px",
-    width: "100%",
-    height: "fit-content",
-    border: "solid red",
+    marginBottom: "25px",
 };
 
 const WhiskeyContentStyles: React.CSSProperties = {
     display: "flex",
     flexDirection: "row",
-    paddingRight: "60px",
     minHeight: "540px",
     position: "relative",
 };
@@ -46,7 +38,7 @@ const WhiskeyVolumeStyles: React.CSSProperties = {
 const Whiskey = () => {
     const jiashuju = {
         brandName: "Chivas Regal",
-        tasteType: "B1",
+        whiskeyType: "Blended Whiskey",
         cocktailChoice: {
             soda: 5,
             cola: 4,
@@ -60,7 +52,7 @@ const Whiskey = () => {
     return (
         <WhiskeyContainer className='WhiskeyContainer'>
             <WhiskeyTitle style={WhiskeyTitleStyles} data={jiashuju}/>
-            <WhiskeyContent style={WhiskeyContentStyles} img={JD}/>
+            <WhiskeyContent style={WhiskeyContentStyles} img={JD} data={jiashuju}/>
             <WhiskeyVolume style={WhiskeyVolumeStyles}/>
         </WhiskeyContainer>
     )

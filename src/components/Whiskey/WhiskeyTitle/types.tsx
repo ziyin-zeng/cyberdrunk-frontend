@@ -5,13 +5,5 @@ export interface WhiskeyTitleProps {
 
 interface WhiskeyTitlePropsData {
     brandName: String,
-    tasteType: String,
-    cocktailChoice: {
-        soda: Number,
-        cola: Number,
-        coconut: Number,
-        tea: Number
-    },
-    content: String,
-    volume: Number
+    whiskeyType: String,
 }
