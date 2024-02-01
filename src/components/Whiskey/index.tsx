@@ -33,6 +33,7 @@ const WhiskeyContentStyles: React.CSSProperties = {
 const WhiskeyVolumeStyles: React.CSSProperties = {
     height: "832px",
     paddingTop: "130px",
+    border: "solid",    
 };
 
 const Whiskey = () => {
@@ -52,6 +53,9 @@ const Whiskey = () => {
     return (
         <WhiskeyContainer className='WhiskeyContainer'>
             <WhiskeyTitle style={WhiskeyTitleStyles} data={jiashuju}/>
+            {/* <div style={{height: "34px", background: "rgba(0,0,0,0.1)", position: "sticky", top: "0px", zIndex: "40"}}>
+
+            </div> */}
             <WhiskeyContent style={WhiskeyContentStyles} img={JD} data={jiashuju}/>
             <WhiskeyVolume style={WhiskeyVolumeStyles}/>
         </WhiskeyContainer>

@@ -22,6 +22,13 @@ const WhiskeyLeftContentContainer = styled("div")(() => ({
     marginRight: "30px",
 }))
 
+const WhiskeyRightContentContainer = styled("div")(() => ({
+    display: "flex",
+    flexDirection: "column",
+    position: "relative",
+    width: "30%",
+}))
+
 const WhiskeyImgContainer = styled("div")(() => ({
     width: "100%",
     height: "600px",
@@ -29,9 +36,29 @@ const WhiskeyImgContainer = styled("div")(() => ({
     border: "solid white"
 }))
 
+const WhiskeyImgFooterContainer = styled("div")(() => ({
+    // 不一定要flexbox，看看
+    display: "flex",
+    flexDirection: "column",
+}))
+
+const WhiskeyTimelineHeader = styled("div")(() => ({
+    position: "sticky",
+    top: "34px",
+    width: "100%",
+    height: "calc(100vh - 143px)", // 和leftContent同高，之后加个变量
+    textAlign: "center",
+    font: "bold 24px/3 sans-serif",
+    background: "white",
+    clipPath: "polygon(0 0, 100% 0%, 100% 15%, 0 15%)",
+    zIndex: "40"
+}))
+
 const WhiskeyTimelineContainer = styled("div")(() => ({
     position: "relative",
-    width: "30%",
+    width: "100%",
+    transform: "translateY(calc(-100vh + 260px))",
+    marginBottom: "calc(-100vh + 260px)"
 }))
 
 const WhiskeyCocktailContainer = styled("div")(() => ({
@@ -77,11 +104,6 @@ const WhiskeyCocktail = (props: WhiskeyCocktailProps) => {
     )
 }
 
-const WhiskeyBaseInfoContainer = styled("div")(()=>({
-    display: "flex",
-    flexDirection: "row",
-}))
-
 const WhiskeyContent = (props: WhiskeyContentProps) => {
     const { style, img, data } = props;
 
@@ -89,34 +111,39 @@ const WhiskeyContent = (props: WhiskeyContentProps) => {
         <div style={style}>
             <WhiskeyLeftContentContainer>
                 <WhiskeyImgContainer>{img}</WhiskeyImgContainer>
-                <WhiskeyCocktailContainer>
-                    <WhiskeyCocktail cocktailType={"tea"} cocktailRank={data.cocktailChoice.tea} />
-                    <WhiskeyCocktail cocktailType={"soda"} cocktailRank={data.cocktailChoice.soda} />
-                    <WhiskeyCocktail cocktailType={"cola"} cocktailRank={data.cocktailChoice.cola} />
-                    <WhiskeyCocktail cocktailType={"coconut"} cocktailRank={data.cocktailChoice.coconut} />
-                </WhiskeyCocktailContainer>
-                <WhiskeyTitle data={data}/>
+                <WhiskeyImgFooterContainer>
+                    <WhiskeyCocktailContainer>
+                        <WhiskeyCocktail cocktailType={"tea"} cocktailRank={data.cocktailChoice.tea} />
+                        <WhiskeyCocktail cocktailType={"soda"} cocktailRank={data.cocktailChoice.soda} />
+                        <WhiskeyCocktail cocktailType={"cola"} cocktailRank={data.cocktailChoice.cola} />
+                        <WhiskeyCocktail cocktailType={"coconut"} cocktailRank={data.cocktailChoice.coconut} />
+                    </WhiskeyCocktailContainer>
+                    <WhiskeyTitle data={data} />
+                </WhiskeyImgFooterContainer>
             </WhiskeyLeftContentContainer>
-            <WhiskeyTimelineContainer>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
-                <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export the end</h1>
-            </WhiskeyTimelineContainer>
+            <WhiskeyRightContentContainer>
+                <WhiskeyTimelineHeader>Des nuits</WhiskeyTimelineHeader>
+                <WhiskeyTimelineContainer>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export the end</h1>
+                </WhiskeyTimelineContainer>
+            </WhiskeyRightContentContainer>
         </div>
     )
 }
