@@ -50,8 +50,24 @@ const WhiskeyTimelineHeader = styled("div")(() => ({
     textAlign: "center",
     font: "bold 24px/3 sans-serif",
     background: "white",
-    clipPath: "polygon(0 0, 100% 0%, 100% 15%, 0 15%)",
-    zIndex: "40"
+    clipPath: "polygon(0 -34px, 100% -34px, 100% 15%, 0 15%)",
+    zIndex: "40",
+    overflow: "visible",
+
+    "&:before": {
+        content: '""',
+        position: "absolute",
+        left: 0,
+        top: "-34px",
+        zIndex: 41,
+        width: "100%",
+        height: "34px",
+        clipPath:
+            "polygon(0 0, 100% 0%, 100% 100%, 0 100%)",
+        background: "#ac6d46",
+        display: "block",
+        overflow: "visible",
+    }
 }))
 
 const WhiskeyTimelineContainer = styled("div")(() => ({
@@ -124,7 +140,7 @@ const WhiskeyContent = (props: WhiskeyContentProps) => {
             <WhiskeyRightContentContainer>
                 <WhiskeyTimelineHeader>Des nuits</WhiskeyTimelineHeader>
                 <WhiskeyTimelineContainer>
-                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Start Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>

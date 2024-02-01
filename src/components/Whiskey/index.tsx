@@ -20,7 +20,7 @@ const WhiskeyContainer = styled("div")(()=>({
 }))
 
 const WhiskeyTitleStyles: React.CSSProperties = {
-    marginBottom: "25px",
+    marginBottom: "34px",
 };
 
 const WhiskeyContentStyles: React.CSSProperties = {
@@ -53,9 +53,6 @@ const Whiskey = () => {
     return (
         <WhiskeyContainer className='WhiskeyContainer'>
             <WhiskeyTitle style={WhiskeyTitleStyles} data={jiashuju}/>
-            {/* <div style={{height: "34px", background: "rgba(0,0,0,0.1)", position: "sticky", top: "0px", zIndex: "40"}}>
-
-            </div> */}
             <WhiskeyContent style={WhiskeyContentStyles} img={JD} data={jiashuju}/>
             <WhiskeyVolume style={WhiskeyVolumeStyles}/>
         </WhiskeyContainer>
