@@ -4,12 +4,10 @@ import Whiskey from "..";
 import { WhiskeyVolumeProps } from "./types"
 
 
-const WhiskeyVolume = (props:WhiskeyVolumeProps) => {
-    const {style} = props;
+const WhiskeyVolume = (props: WhiskeyVolumeProps) => {
+    const { style } = props;
     return (
-        <>
-            <div style={style}>RemainedVolume</div>
-        </>
+        <div className="Whiskey-Volume" style={style}>RemainedVolume</div>
     )
 }
 

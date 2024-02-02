@@ -112,7 +112,7 @@ const WhiskeyCocktail = (props: WhiskeyCocktailProps) => {
             break;
     }
     return (
-        <div className={"cocktailType-" + cocktailType}>
+        <div className={"CocktailType-" + cocktailType}>
             <SvgIcon component={cocktailIcon} inheritViewBox fontSize="inherit" />
             {cocktailType}:
             {cocktailRank}
@@ -124,22 +124,22 @@ const WhiskeyContent = (props: WhiskeyContentProps) => {
     const { style, img, data } = props;
 
     return (
-        <div style={style}>
-            <WhiskeyLeftContentContainer>
-                <WhiskeyImgContainer>{img}</WhiskeyImgContainer>
-                <WhiskeyImgFooterContainer>
-                    <WhiskeyCocktailContainer>
+        <div className="Whiskey-Content" style={style}>
+            <WhiskeyLeftContentContainer className="Whiskey-Left-Content-Container">
+                <WhiskeyImgContainer className="Whiskey-Img-Container">{img}</WhiskeyImgContainer>
+                <WhiskeyImgFooterContainer className="Whiskey-Img-Footer-Container">
+                    <WhiskeyCocktailContainer className="Whiskey-Cocktail-Container">
                         <WhiskeyCocktail cocktailType={"tea"} cocktailRank={data.cocktailChoice.tea} />
                         <WhiskeyCocktail cocktailType={"soda"} cocktailRank={data.cocktailChoice.soda} />
                         <WhiskeyCocktail cocktailType={"cola"} cocktailRank={data.cocktailChoice.cola} />
                         <WhiskeyCocktail cocktailType={"coconut"} cocktailRank={data.cocktailChoice.coconut} />
                     </WhiskeyCocktailContainer>
-                    <WhiskeyTitle data={data} />
+                    <WhiskeyTitle className="Whiskey-Title-in-Img-Footer" data={data} />
                 </WhiskeyImgFooterContainer>
             </WhiskeyLeftContentContainer>
-            <WhiskeyRightContentContainer>
-                <WhiskeyTimelineHeader>Des nuits</WhiskeyTimelineHeader>
-                <WhiskeyTimelineContainer>
+            <WhiskeyRightContentContainer className="Whiskey-Right-Content-Container">
+                <WhiskeyTimelineHeader className="Whiskey-Timeline-Header">Des nuits</WhiskeyTimelineHeader>
+                <WhiskeyTimelineContainer className="Whiskey-Timeline-Container">
                     <h1>Start Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>

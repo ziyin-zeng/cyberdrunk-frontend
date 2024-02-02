@@ -14,7 +14,7 @@ const WhiskeyTitleTaste = styled("div")(() => ({
 }));
 
 const WhiskeyTitle = (props: WhiskeyTitleProps) => {
-    const { style, data } = props;
+    const { style, data, className } = props;
 
     const BasicWhiskeyTitleStyles: React.CSSProperties = {
         display: "flex",
@@ -31,7 +31,7 @@ const WhiskeyTitle = (props: WhiskeyTitleProps) => {
     };
 
     return (
-        <div className="WhiskeyTitle" style={WhiskeyTitleStyles}>
+        <div className={className?className:"Whiskey-Title"} style={WhiskeyTitleStyles}>
             <WhiskeyTitleBrand>{data.brandName}</WhiskeyTitleBrand>
             <WhiskeyTitleTaste>{data.whiskeyType}</WhiskeyTitleTaste>
         </div>

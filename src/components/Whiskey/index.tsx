@@ -51,7 +51,7 @@ const Whiskey = () => {
     }
     
     return (
-        <WhiskeyContainer className='WhiskeyContainer'>
+        <WhiskeyContainer className="Whiskey-Container">
             <WhiskeyTitle style={WhiskeyTitleStyles} data={jiashuju}/>
             <WhiskeyContent style={WhiskeyContentStyles} img={JD} data={jiashuju}/>
             <WhiskeyVolume style={WhiskeyVolumeStyles}/>

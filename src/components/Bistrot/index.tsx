@@ -1,7 +1,7 @@
 import './index.scss'
 import { useEffect, useRef, useState } from 'react'
 import { styled } from "@mui/material/styles"
-import { doAlgoTriInsertion } from '../../api/Tri'
+import { doAlgoTriInsertion, selectSort } from '../../api/Tri'
 import { getWhiskeyBrand } from '../../api/Alcohol'
 import CardStepper from '../CustomCard/CardStepper'
 import WhiskeyTransitionTitle from '../CustomCard/WhiskeyTransitionTitle'
@@ -85,6 +85,7 @@ const Bistrot = () => {
   const handleStateChangeRef = useRef((nextActiveStep: number)=>{});
 
   useEffect(() => {
+    selectSort([20,1])
     getWhiskeyBrand()
       .then((response: any) => {
         const alcoholName = response.data;
