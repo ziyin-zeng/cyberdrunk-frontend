@@ -20,9 +20,13 @@ const WhiskeyTitle = (props: WhiskeyTitleProps) => {
         display: "flex",
         flexDirection: "row",
         justifyContent: "space-between",
+        alignItems: "flex-end",
         width: "100%",
         height: "fit-content",
-        border: "solid red",
+        padding: "10px 30px",
+        // border: "solid red",
+        background: "rgba(30,30,63,0.5)",
+        borderRadius: "1rem",
     };
 
     const WhiskeyTitleStyles: React.CSSProperties = {
@@ -31,7 +35,7 @@ const WhiskeyTitle = (props: WhiskeyTitleProps) => {
     };
 
     return (
-        <div className={className?className:"Whiskey-Title"} style={WhiskeyTitleStyles}>
+        <div className={className ? className : "Whiskey-Title"} style={WhiskeyTitleStyles}>
             <WhiskeyTitleBrand>{data.brandName}</WhiskeyTitleBrand>
             <WhiskeyTitleTaste>{data.whiskeyType}</WhiskeyTitleTaste>
         </div>

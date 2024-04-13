@@ -6,21 +6,17 @@ import WhiskeyTitle from './WhiskeyTitle'
 import WhiskeyContent from './WhiskeyContent'
 import WhiskeyVolume from './WhiskeyVolume'
 
-// 导入图片，实际应该是调API
-import JD from '../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg';
-
-
 const WhiskeyContainer = styled("div")(()=>({
     display: "flex",
     flexDirection: "column",
-    width: "95%",
-    margin: "34px auto",
-    border: "solid blue",
+    width: "96%",
+    margin: "2% auto",
     position: "relative",
 }))
 
 const WhiskeyTitleStyles: React.CSSProperties = {
-    marginBottom: "34px",
+    marginBottom: "1.5%",
+    backgroundPosition: "-50%",
 };
 
 const WhiskeyContentStyles: React.CSSProperties = {
@@ -53,7 +49,7 @@ const Whiskey = () => {
     return (
         <WhiskeyContainer className="Whiskey-Container">
             <WhiskeyTitle style={WhiskeyTitleStyles} data={jiashuju}/>
-            <WhiskeyContent style={WhiskeyContentStyles} img={JD} data={jiashuju}/>
+            <WhiskeyContent style={WhiskeyContentStyles} data={jiashuju}/>
             <WhiskeyVolume style={WhiskeyVolumeStyles}/>
         </WhiskeyContainer>
     )

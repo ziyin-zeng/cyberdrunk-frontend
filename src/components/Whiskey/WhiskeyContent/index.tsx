@@ -12,11 +12,16 @@ import { ReactComponent as ColaIcon } from "/Users/skunkhunt42/Desktop/CyberDrun
 import { ReactComponent as CoconutIcon } from "/Users/skunkhunt42/Desktop/CyberDrunk/cyberdrunk-frontend/src/assets/icons/coconut2.svg";
 import { ReactComponent as SodaIcon } from "/Users/skunkhunt42/Desktop/CyberDrunk/cyberdrunk-frontend/src/assets/icons/soda2.svg";
 
+// 导入图片，实际应该是调API
+import JD from '../../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg';
+import LK from '../../../assets/images/whiskey/cody-chan-hLgKiFcVuDY-unsplash.jpg';
+import CVS from '../../../assets/images/whiskey/kartikeya-srivastava-Wn07Sg4O2LY-unsplash.jpg';
+
 const WhiskeyLeftContentContainer = styled("div")(() => ({
     display: "flex",
     flexDirection: "column",
     position: "sticky",
-    top: "34px",
+    top: "3%",
     width: "70%",
     height: "calc(100vh - 143px)",
     marginRight: "30px",
@@ -33,7 +38,23 @@ const WhiskeyImgContainer = styled("div")(() => ({
     width: "100%",
     height: "600px",
     marginBottom: "25px",
-    border: "solid white"
+    backgroundImage: `url(${LK})`,
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+    borderRadius: "1rem",
+    zIndex: "40",
+    // transform: "scale(0.95)",
+
+    // "&:before": {
+    //     content: "''",
+    //     position: "absolute",
+    //     top: "0",
+    //     width: "50%",
+    //     height: "100%",
+    //     display: "block",
+    //     background: "white",
+    //     zIndex: 0
+    // }
 }))
 
 const WhiskeyImgFooterContainer = styled("div")(() => ({
@@ -44,12 +65,12 @@ const WhiskeyImgFooterContainer = styled("div")(() => ({
 
 const WhiskeyTimelineHeader = styled("div")(() => ({
     position: "sticky",
-    top: "34px",
+    top: "3%",
     width: "100%",
     height: "calc(100vh - 143px)", // 和leftContent同高，之后加个变量
     textAlign: "center",
     font: "bold 24px/3 sans-serif",
-    background: "white",
+    background: "#242433",
     clipPath: "polygon(0 -34px, 100% -34px, 100% 15%, 0 15%)",
     zIndex: "40",
     overflow: "visible",
@@ -58,13 +79,13 @@ const WhiskeyTimelineHeader = styled("div")(() => ({
         content: '""',
         position: "absolute",
         left: 0,
-        top: "-34px",
+        top: "-3%",
         zIndex: 41,
         width: "100%",
-        height: "34px",
+        height: "3%",
         clipPath:
             "polygon(0 0, 100% 0%, 100% 100%, 0 100%)",
-        background: "#ac6d46",
+        background: "#242433",
         display: "block",
         overflow: "visible",
     }
@@ -83,7 +104,7 @@ const WhiskeyCocktailContainer = styled("div")(() => ({
     justifyContent: "space-around",
     alignItems: "flex-end",
     font: "bold 24px/1 sans-serif",
-    border: "solid white"
+    borderRadius: "1rem",
 }));
 
 interface WhiskeyCocktailProps {
@@ -121,12 +142,12 @@ const WhiskeyCocktail = (props: WhiskeyCocktailProps) => {
 }
 
 const WhiskeyContent = (props: WhiskeyContentProps) => {
-    const { style, img, data } = props;
+    const { style, data } = props;
 
     return (
         <div className="Whiskey-Content" style={style}>
             <WhiskeyLeftContentContainer className="Whiskey-Left-Content-Container">
-                <WhiskeyImgContainer className="Whiskey-Img-Container">{img}</WhiskeyImgContainer>
+                <WhiskeyImgContainer className="Whiskey-Img-Container"></WhiskeyImgContainer>
                 <WhiskeyImgFooterContainer className="Whiskey-Img-Footer-Container">
                     <WhiskeyCocktailContainer className="Whiskey-Cocktail-Container">
                         <WhiskeyCocktail cocktailType={"tea"} cocktailRank={data.cocktailChoice.tea} />
