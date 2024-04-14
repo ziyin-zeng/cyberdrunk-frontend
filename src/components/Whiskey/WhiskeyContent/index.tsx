@@ -22,8 +22,8 @@ const WhiskeyLeftContentContainer = styled("div")(() => ({
     flexDirection: "column",
     position: "sticky",
     top: "20px",
-    width: "70%",
-    height: "calc(100vh - 143px)",
+    width: "65%",
+    height: "calc(100vh - 20px)",
     marginRight: "30px",
 }))
 
@@ -31,13 +31,13 @@ const WhiskeyRightContentContainer = styled("div")(() => ({
     display: "flex",
     flexDirection: "column",
     position: "relative",
-    width: "30%",
+    width: "35%",
 }))
 
 const WhiskeyImgContainer = styled("div")(() => ({
     width: "100%",
-    height: "600px",
-    marginBottom: "25px",
+    height: "65%",
+    marginBottom: "10px",
     backgroundImage: `url(${LK})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -61,6 +61,8 @@ const WhiskeyImgFooterContainer = styled("div")(() => ({
     // 不一定要flexbox，看看
     display: "flex",
     flexDirection: "column",
+    height: "35%",
+    justifyContent: "space-between"
 }))
 
 const WhiskeyTimelineHeader = styled("div")(() => ({
@@ -85,7 +87,8 @@ const WhiskeyTimelineHeader = styled("div")(() => ({
         height: "20px",
         clipPath:
             "polygon(0 0, 100% 0%, 100% 100%, 0 100%)",
-        background: "#242433",
+        // background: "#242433",
+        background: "#FFFFFF",
         display: "block",
         overflow: "visible",
     }
@@ -99,13 +102,19 @@ const WhiskeyTimelineContainer = styled("div")(() => ({
 }))
 
 const WhiskeyCocktailContainer = styled("div")(() => ({
+    height: "60%",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    alignItems: "flex-end",
+    alignItems: "center",
     font: "bold 24px/1 sans-serif",
     borderRadius: "1rem",
 }));
+
+// All Styles
+const WhiskeyTitleStyles: React.CSSProperties = {
+    height: "40%"
+}
 
 interface WhiskeyCocktailProps {
     cocktailType: String,
@@ -116,16 +125,16 @@ const WhiskeyCocktail = (props: WhiskeyCocktailProps) => {
     const { cocktailType, cocktailRank } = props;
     let cocktailIcon = TeaIcon;
     switch (cocktailType) {
-        case "tea":
+        case "Tea":
             cocktailIcon = TeaIcon;
             break;
-        case "cola":
+        case "Cola":
             cocktailIcon = ColaIcon;
             break;
-        case "coconut":
+        case "Coconut":
             cocktailIcon = CoconutIcon;
             break;
-        case "soda":
+        case "Soda":
             cocktailIcon = SodaIcon;
             break;
         default:
@@ -150,12 +159,12 @@ const WhiskeyContent = (props: WhiskeyContentProps) => {
                 <WhiskeyImgContainer className="Whiskey-Img-Container"></WhiskeyImgContainer>
                 <WhiskeyImgFooterContainer className="Whiskey-Img-Footer-Container">
                     <WhiskeyCocktailContainer className="Whiskey-Cocktail-Container">
-                        <WhiskeyCocktail cocktailType={"tea"} cocktailRank={data.cocktailChoice.tea} />
-                        <WhiskeyCocktail cocktailType={"soda"} cocktailRank={data.cocktailChoice.soda} />
-                        <WhiskeyCocktail cocktailType={"cola"} cocktailRank={data.cocktailChoice.cola} />
-                        <WhiskeyCocktail cocktailType={"coconut"} cocktailRank={data.cocktailChoice.coconut} />
+                        <WhiskeyCocktail cocktailType={"Tea"} cocktailRank={data.cocktailChoice.tea} />
+                        <WhiskeyCocktail cocktailType={"Soda"} cocktailRank={data.cocktailChoice.soda} />
+                        <WhiskeyCocktail cocktailType={"Cola"} cocktailRank={data.cocktailChoice.cola} />
+                        <WhiskeyCocktail cocktailType={"Coconut"} cocktailRank={data.cocktailChoice.coconut} />
                     </WhiskeyCocktailContainer>
-                    <WhiskeyTitle className="Whiskey-Title-in-Img-Footer" data={data} />
+                    <WhiskeyTitle className="Whiskey-Title-in-Img-Footer" style={WhiskeyTitleStyles} data={data} />
                 </WhiskeyImgFooterContainer>
             </WhiskeyLeftContentContainer>
             <WhiskeyRightContentContainer className="Whiskey-Right-Content-Container">
@@ -178,6 +187,12 @@ const WhiskeyContent = (props: WhiskeyContentProps) => {
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export default</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export the end</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export the end</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export the end</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export the end</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export the end</h1>
+                    <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export the end</h1>
                     <h1>Timeline WhiskeyTimelineContainer props paddingRight import div haha export the end</h1>
                 </WhiskeyTimelineContainer>
             </WhiskeyRightContentContainer>

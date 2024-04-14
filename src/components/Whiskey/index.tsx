@@ -15,8 +15,8 @@ const WhiskeyContainer = styled("div")(()=>({
 }))
 
 const WhiskeyTitleStyles: React.CSSProperties = {
-    marginBottom: "1.5%",
-    backgroundPosition: "-50%",
+    marginBottom: "20px",
+    height: "calc((100vh - 20px) * 0.35 * 0.4)"
 };
 
 const WhiskeyContentStyles: React.CSSProperties = {

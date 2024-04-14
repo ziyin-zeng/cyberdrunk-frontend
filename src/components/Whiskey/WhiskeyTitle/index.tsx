@@ -22,7 +22,7 @@ const WhiskeyTitle = (props: WhiskeyTitleProps) => {
         justifyContent: "space-between",
         alignItems: "flex-end",
         width: "100%",
-        height: "fit-content",
+        // height: "fit-content",
         padding: "10px 30px",
         // border: "solid red",
         background: "rgba(30,30,63,0.5)",
