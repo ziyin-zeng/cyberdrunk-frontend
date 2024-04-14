@@ -21,7 +21,7 @@ const WhiskeyLeftContentContainer = styled("div")(() => ({
     display: "flex",
     flexDirection: "column",
     position: "sticky",
-    top: "3%",
+    top: "20px",
     width: "70%",
     height: "calc(100vh - 143px)",
     marginRight: "30px",
@@ -65,7 +65,7 @@ const WhiskeyImgFooterContainer = styled("div")(() => ({
 
 const WhiskeyTimelineHeader = styled("div")(() => ({
     position: "sticky",
-    top: "3%",
+    top: "20px",
     width: "100%",
     height: "calc(100vh - 143px)", // 和leftContent同高，之后加个变量
     textAlign: "center",
@@ -79,10 +79,10 @@ const WhiskeyTimelineHeader = styled("div")(() => ({
         content: '""',
         position: "absolute",
         left: 0,
-        top: "-3%",
+        top: "-20px",
         zIndex: 41,
         width: "100%",
-        height: "3%",
+        height: "20px",
         clipPath:
             "polygon(0 0, 100% 0%, 100% 100%, 0 100%)",
         background: "#242433",
