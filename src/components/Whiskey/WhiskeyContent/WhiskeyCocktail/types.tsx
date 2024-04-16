@@ -1,6 +1,5 @@
-export interface WhiskeyContentProps {
-    style?: React.CSSProperties;
-    data: WhiskeyContentPropsData;
+export interface WhiskeyCocktailProps {
+    data: WhiskeyContentPropsData
 }
 
 interface WhiskeyContentPropsData {

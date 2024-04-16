@@ -36,11 +36,20 @@ const Whiskey = () => {
     const jiashuju = {
         brandName: "Chivas Regal",
         whiskeyType: "Blended Whiskey",
+        // B1 - Light & Fragrant
+        // B2 - Fruity & Spicy
+        // B3 - Rich & Fruity
+        // B4 - Smokey & Peaty
+        // M1 - Light & Fragrant
+        // M2 - Fresh & Fruity
+        // M3 - Rich & Fruity
+        // M4 - Smokey & Peaty
+        whiskeySubType: "Light & Fragrant",
         cocktailChoice: {
-            soda: 5,
-            cola: 4,
-            coconut: 5,
-            tea: 1
+            soda: 4,
+            cola: 3,
+            coconut: 4,
+            tea: 2
         },
         content: "timeline blablablabla",
         volume: 0.7

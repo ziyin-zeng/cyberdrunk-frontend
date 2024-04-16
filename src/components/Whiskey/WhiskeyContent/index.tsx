@@ -1,16 +1,10 @@
 // 导入子组件
 import { WhiskeyContentProps } from "./types"
 import WhiskeyTitle from '../WhiskeyTitle'
+import { WhiskeyCocktail } from "./WhiskeyCocktail";
 
 // mui
 import { styled } from "@mui/material/styles";
-import { SvgIcon } from "@mui/material";
-
-// 导入icons
-import { ReactComponent as TeaIcon } from "/Users/skunkhunt42/Desktop/CyberDrunk/cyberdrunk-frontend/src/assets/icons/tea.svg";
-import { ReactComponent as ColaIcon } from "/Users/skunkhunt42/Desktop/CyberDrunk/cyberdrunk-frontend/src/assets/icons/cola.svg";
-import { ReactComponent as CoconutIcon } from "/Users/skunkhunt42/Desktop/CyberDrunk/cyberdrunk-frontend/src/assets/icons/coconut2.svg";
-import { ReactComponent as SodaIcon } from "/Users/skunkhunt42/Desktop/CyberDrunk/cyberdrunk-frontend/src/assets/icons/soda2.svg";
 
 // 导入图片，实际应该是调API
 import JD from '../../../assets/images/whiskey/pexels-marcelo-verfe-18702214.jpg';
@@ -38,7 +32,7 @@ const WhiskeyImgContainer = styled("div")(() => ({
     width: "100%",
     height: "65%",
     marginBottom: "10px",
-    backgroundImage: `url(${LK})`,
+    backgroundImage: `url(${CVS})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     borderRadius: "1rem",
@@ -62,7 +56,7 @@ const WhiskeyImgFooterContainer = styled("div")(() => ({
     display: "flex",
     flexDirection: "column",
     height: "35%",
-    justifyContent: "space-between"
+    // justifyContent: "space-between"
 }))
 
 const WhiskeyTimelineHeader = styled("div")(() => ({
@@ -87,8 +81,7 @@ const WhiskeyTimelineHeader = styled("div")(() => ({
         height: "20px",
         clipPath:
             "polygon(0 0, 100% 0%, 100% 100%, 0 100%)",
-        // background: "#242433",
-        background: "#FFFFFF",
+        background: "#242433",
         display: "block",
         overflow: "visible",
     }
@@ -101,53 +94,9 @@ const WhiskeyTimelineContainer = styled("div")(() => ({
     marginBottom: "calc(-100vh + 260px)"
 }))
 
-const WhiskeyCocktailContainer = styled("div")(() => ({
-    height: "60%",
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
-    font: "bold 24px/1 sans-serif",
-    borderRadius: "1rem",
-}));
-
 // All Styles
 const WhiskeyTitleStyles: React.CSSProperties = {
     height: "40%"
-}
-
-interface WhiskeyCocktailProps {
-    cocktailType: String,
-    cocktailRank: Number,
-}
-
-const WhiskeyCocktail = (props: WhiskeyCocktailProps) => {
-    const { cocktailType, cocktailRank } = props;
-    let cocktailIcon = TeaIcon;
-    switch (cocktailType) {
-        case "Tea":
-            cocktailIcon = TeaIcon;
-            break;
-        case "Cola":
-            cocktailIcon = ColaIcon;
-            break;
-        case "Coconut":
-            cocktailIcon = CoconutIcon;
-            break;
-        case "Soda":
-            cocktailIcon = SodaIcon;
-            break;
-        default:
-            cocktailIcon = TeaIcon;
-            break;
-    }
-    return (
-        <div className={"CocktailType-" + cocktailType}>
-            <SvgIcon component={cocktailIcon} inheritViewBox fontSize="inherit" />
-            {cocktailType}:
-            {cocktailRank}
-        </div>
-    )
 }
 
 const WhiskeyContent = (props: WhiskeyContentProps) => {
@@ -158,12 +107,7 @@ const WhiskeyContent = (props: WhiskeyContentProps) => {
             <WhiskeyLeftContentContainer className="Whiskey-Left-Content-Container">
                 <WhiskeyImgContainer className="Whiskey-Img-Container"></WhiskeyImgContainer>
                 <WhiskeyImgFooterContainer className="Whiskey-Img-Footer-Container">
-                    <WhiskeyCocktailContainer className="Whiskey-Cocktail-Container">
-                        <WhiskeyCocktail cocktailType={"Tea"} cocktailRank={data.cocktailChoice.tea} />
-                        <WhiskeyCocktail cocktailType={"Soda"} cocktailRank={data.cocktailChoice.soda} />
-                        <WhiskeyCocktail cocktailType={"Cola"} cocktailRank={data.cocktailChoice.cola} />
-                        <WhiskeyCocktail cocktailType={"Coconut"} cocktailRank={data.cocktailChoice.coconut} />
-                    </WhiskeyCocktailContainer>
+                    <WhiskeyCocktail data={data}/>
                     <WhiskeyTitle className="Whiskey-Title-in-Img-Footer" style={WhiskeyTitleStyles} data={data} />
                 </WhiskeyImgFooterContainer>
             </WhiskeyLeftContentContainer>
