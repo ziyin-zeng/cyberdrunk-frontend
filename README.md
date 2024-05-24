@@ -1,3 +1,16 @@
+# What is this project ?
+
+**Still under construction.**
+
+This project is a Web App I use to showcase my own alcohol collection as well as to control my alcohol intake. 
+
+In the near future, I plan to convert it into an open source project that will allow more people to customise their own app !
+
+You could find Figma protoype of this project by visiting this [link](https://www.figma.com/community/file/1375771448029455775/cyberdrunk-prototypes).
+
+![Image text](./img/homePage.png)
+
+![Image text](./img/showcasePage.png)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
