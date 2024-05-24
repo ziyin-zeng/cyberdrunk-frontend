@@ -2,6 +2,12 @@
 
 **Still under construction.**
 
+## Tech Stack
+
+[React](https://react.dev/reference/react) | [TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html) | [SCSS](https://sass-lang.com/documentation/at-rules/control/for/) | [Animate.css](https://animate.style/) | [Material UI](https://mui.com/material-ui/getting-started/)
+
+## Description
+
 This project is a Web App I use to showcase my own alcohol collection as well as to control my alcohol intake. 
 
 In the near future, I plan to convert it into an open source project that will allow more people to customise their own app !
