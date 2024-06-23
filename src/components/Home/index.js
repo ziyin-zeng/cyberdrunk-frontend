@@ -8,7 +8,7 @@ import {getAlcoholByCat} from '../../api/Alcohol'
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
   // const nameArray = ['k', 'u', 'n', 'k', 'h', 'u', 'n', 't', '4', '2']
-  const nameArray = [' ', 'Z', 'i', 'y', 'i', 'n', ' ', 'Z', 'E', 'N', 'G']
+  const nameArray = [' ', 'Z', 'i', 'y', 'i', 'n', ' ', 'Z', 'E', 'N', 'G', ' ', ',']
   const jobArray = [
     'w',
     'e',
@@ -57,9 +57,9 @@ const Home = () => {
             idx={26}
           />
         </h1>
-        <h2>React | TypeScript</h2>
-        <Link to="/contact" className={'flat-button'}>
-          Contact me
+        <h2>Welcome to discover my Whiskey collection</h2>
+        <Link to="/bistrot" className={'flat-button'}>
+          Discover
         </Link>
       </div>
       <Logo />

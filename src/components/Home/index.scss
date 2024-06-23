@@ -53,10 +53,10 @@
     color: #edcbb8;
     margin-top: 20px;
     font-weight: 400;
-    font-size: 11px;
+    font-size: 16px;
     font-family: sans-serif;
     letter-spacing: 3px; // 字母间距
-    animation: fadeIn 1s 1.8s backwards;
+    animation: fadeIn 3s 2.8s backwards;
   }
 
   .flat-button {
@@ -70,7 +70,7 @@
     border: 1px solid #ff5100;
     margin-top: 25px;
     float: left; // 类似position，加了才渲染这个flat-button
-    animation: fadeIn 1s 2.2s backwards;
+    animation: fadeIn 3s 3.2s backwards;
     white-space: nowrap; // 处理留白
 
     &:hover {
