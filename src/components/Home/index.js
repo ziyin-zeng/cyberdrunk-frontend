@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import AnimatedLetters from '../AnimatedLetters'
 import Logo from './Logo'
-import {getAlcoholByCat} from '../../api/Alcohol'
+import { getAlcoholByCat } from '../../api/Alcohol'
 
 const Home = () => {
   const [letterClass, setLetterClass] = useState('text-animate')

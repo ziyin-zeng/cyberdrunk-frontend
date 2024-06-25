@@ -18,74 +18,74 @@ const TitleList = ["J", "L", "C", "G"]
 
 const cards = [
   {
-      brand: 'Johnnie walker',
-      color: "#fc7944",
-      cover: JD,
-      logo: JDLogo,
-      title:
-          <>
-              Astronomy Binoculars
-              <br />A Great Alternative
-          </>
-      ,
-      imgSource: "Pexels",
-      imgAuthor: "Marcelo Verfe",
-      date: "02.04.2020",
+    brand: 'Johnnie walker',
+    color: "#fc7944",
+    cover: JD,
+    logo: JDLogo,
+    title:
+      <>
+        Astronomy Binoculars
+        <br />A Great Alternative
+      </>
+    ,
+    imgSource: "Pexels",
+    imgAuthor: "Marcelo Verfe",
+    date: "02.04.2020",
   },
   {
-      brand: 'Loku',
-      color: "#fc7944",
-      cover: LK,
-      logo: JDLogo,
-      title:
-          <>
-              Astronomy Binoculars
-              <br />A Great Alternative
-          </>
-      ,
-      imgSource: "Pexels",
-      imgAuthor: "Marcelo Verfe",
-      date: "02.04.2020",
+    brand: 'Loku',
+    color: "#fc7944",
+    cover: LK,
+    logo: JDLogo,
+    title:
+      <>
+        Astronomy Binoculars
+        <br />A Great Alternative
+      </>
+    ,
+    imgSource: "Pexels",
+    imgAuthor: "Marcelo Verfe",
+    date: "02.04.2020",
   },
   {
-      brand: 'Chivas',
-      color: "#fc7944",
-      cover: CVS,
-      logo: JDLogo,
-      title:
-          <>
-              Astronomy Binoculars
-              <br />A Great Alternative
-          </>
-      ,
-      imgSource: "Pexels",
-      imgAuthor: "Marcelo Verfe",
-      date: "02.04.2020",
+    brand: 'Chivas',
+    color: "#fc7944",
+    cover: CVS,
+    logo: JDLogo,
+    title:
+      <>
+        Astronomy Binoculars
+        <br />A Great Alternative
+      </>
+    ,
+    imgSource: "Pexels",
+    imgAuthor: "Marcelo Verfe",
+    date: "02.04.2020",
   },
   {
-      brand: 'Glen',
-      color: "#fc7944",
-      cover: MCL,
-      logo: JDLogo,
-      title:
-          <>
-              Astronomy Binoculars
-              <br />A Great Alternative
-          </>
-      ,
-      imgSource: "Pexels",
-      imgAuthor: "Marcelo Verfe",
-      date: "02.04.2020",
+    brand: 'Glen',
+    color: "#fc7944",
+    cover: MCL,
+    logo: JDLogo,
+    title:
+      <>
+        Astronomy Binoculars
+        <br />A Great Alternative
+      </>
+    ,
+    imgSource: "Pexels",
+    imgAuthor: "Marcelo Verfe",
+    date: "02.04.2020",
   },
 ];
 
 const Bistrot = () => {
   // Bistrot 自己管理一套index，只在CardStepper回调函数里更新
   const [activeIndex, setActiveIndex] = useState(1);
-  const handleStateChangeRef = useRef((nextActiveStep: number)=>{});
+  const handleStateChangeRef = useRef((nextActiveStep: number) => { });
 
   useEffect(() => {
-    selectSort([20,1])
+    selectSort([20, 1])
     getWhiskeyBrand()
       .then((response: any) => {
         const alcoholName = response.data;
@@ -103,8 +103,8 @@ const Bistrot = () => {
 
   const handleStateChange = (nextActiveStep: number) => {
     // activeIndex <= nextActiveStep ? activeIndex = activeIndex + 1 : activeIndex = activeIndex - 1;
-      console.log("some",nextActiveStep)
-      setActiveIndex(nextActiveStep)
+    console.log("some", nextActiveStep)
+    setActiveIndex(nextActiveStep)
   }
   handleStateChangeRef.current = handleStateChange;
 
